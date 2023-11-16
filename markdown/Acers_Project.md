@@ -50,7 +50,7 @@ Acers Team
   1](#standardize-data-transform-to-have-a-std-of-1)
   - [The Standardize Basic Transform on the Boston Housing
     Dataset](#the-standardize-basic-transform-on-the-boston-housing-dataset)
-- [Training Model —-](#training-model--)
+- [Training Model](#training-model)
 
 ------------------------------------------------------------------------
 
@@ -1371,7 +1371,7 @@ sapply(streamling_processes_standardize_transform[, c(4, 6, 7, 9, 10, 11, 13,14,
     ##       YearsInCurrentRole  YearsSinceLastPromotion     YearsWithCurrManager 
     ##                        1                        1                        1
 
-# Training Model —-
+# Training Model
 
 ``` r
 ## 1. Split the dataset

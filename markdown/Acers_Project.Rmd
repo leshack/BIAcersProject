@@ -554,7 +554,7 @@ summary(streamling_processes_standardize_transform)
 sapply(streamling_processes_standardize_transform[, c(4, 6, 7, 9, 10, 11, 13,14, 15 , 17 , 19, 20 , 21,  25, 26, 27 , 28 ,29, 30, 31 , 32 , 33 , 34 ,35  )], sd)
 ```
 
-# Training Model ----
+# Training Model 
 
 ```{r Your twenty Code Chunk}
 ## 1. Split the dataset
