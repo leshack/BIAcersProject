@@ -35,6 +35,25 @@ if (!is.element("caret", installed.packages()[, 1])) {
 }
 require("caret")
 
+if (!is.element("naniar", installed.packages()[, 1])) {
+  install.packages("naniar", dependencies = TRUE)
+}
+require("naniar")
+
+if (!is.element("dplyr", installed.packages()[, 1])) {
+  install.packages("dplyr", dependencies = TRUE)
+}
+require("dplyr")
+
+if (!is.element("ggplot2", installed.packages()[, 1])) {
+  install.packages("ggplot2", dependencies = TRUE)
+}
+require("ggplot2")
+
+if (!is.element("mice", installed.packages()[, 1])) {
+  install.packages("mice", dependencies = TRUE)
+}
+require("mice")
 
 
 
@@ -248,4 +267,50 @@ STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- read_csv("data/STREAMLINING PROCESSE
 
 featurePlot(x = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 1:8], y = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 9],
             plot = "box")
+
+# Preprocessing and Data Transformation ----
+## Confirm the "missingness" in the Initial Dataset ----
+
+# Are there missing values in the dataset?
+any_na(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
+
+# How many?
+n_miss(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
+
+# What is the percentage of missing data in the entire dataset?
+prop_miss(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
+
+# How many missing values does each variable have?
+STREAMLINING_PROCESSES_AT_KINYANJUI_FARM %>% is.na() %>% colSums()
+
+# What is the number and percentage of missing values grouped by
+# each variable?
+miss_var_summary(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
+
+# What is the number and percentage of missing values grouped by
+# each observation?
+miss_case_summary(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
+
+# Which variables contain the most missing values?
+gg_miss_var(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
+
+# Where are missing values located (the shaded regions in the plot)?
+vis_miss(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM) + theme(axis.text.x = element_text(angle = 80))
+
+# Which combinations of variables are missing together?
+gg_miss_upset(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
+
+# Create a heatmap of "missingness" broken down by "Age"
+# First, confirm that the "AgeDecade" variable is a categorical variable
+is.factor(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Age)
+# Second, create the visualization
+gg_miss_fct(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, fct = Age)
+
+# We can also create a heatmap of "missingness" broken down by "Depressed"
+# First, confirm that the "Depressed" variable is a categorical variable
+is.factor(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Attrition)
+# Second, create the visualization
+gg_miss_fct(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, fct = Attrition)
+
+
 
