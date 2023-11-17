@@ -79,6 +79,69 @@ if (require("FactoMineR")) {
                    repos = "https://cloud.r-project.org")
 }
 
+# STEP 1. Install and Load the Required Packages ----
+## randomForest ----
+if (require("randomForest")) {
+  require("randomForest")
+} else {
+  install.packages("randomForest", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+
+## RRF ----
+if (require("RRF")) {
+  require("RRF")
+} else {
+  install.packages("RRF", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+## caretEnsemble ----
+if (require("caretEnsemble")) {
+  require("caretEnsemble")
+} else {
+  install.packages("caretEnsemble", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+
+## C50 ----
+if (require("C50")) {
+  require("C50")
+} else {
+  install.packages("C50", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+
+## adabag ----
+if (require("adabag")) {
+  require("adabag")
+} else {
+  install.packages("adabag", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+## plumber ----
+if (require("plumber")) {
+  require("plumber")
+} else {
+  install.packages("plumber", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+## httr ----
+if (require("httr")) {
+  require("httr")
+} else {
+  install.packages("httr", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+
+## jsonlite ----
+if (require("jsonlite")) {
+  require("jsonlite")
+} else {
+  install.packages("jsonlite", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+
+
 
 
 # Lab 1: Loading Datasets ----
@@ -105,6 +168,10 @@ dim(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
 # data types:
 sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, class)
 
+# Drop specified columns
+columns_to_drop <- c('EmployeeCount', 'EmployeeNumber', 'Over18', 'StandardHours')
+STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, !(names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM) %in% columns_to_drop)]
+View(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
 
 ## Descriptive Statistics ----
 
@@ -153,31 +220,31 @@ STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- na.omit(STREAMLINING_PROCESSES_AT_KI
 
 #### Measure the standard deviation ----
 
-sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 10, 11, 13,14, 15 , 17 , 19, 20 , 21,  25, 26, 27 , 28 ,29, 30, 31 , 32 , 33 , 34 ,35  )], sd)
+sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 12, 13, 15 , 17 , 18, 19,  21, 22, 23,24, 25, 26, 27, 28 ,29, 30, 31   )], sd)
 
 #### Measure the variance of each variable ----
   
-sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 10, 11, 13,14, 15 , 17 , 19, 20 , 21,  25, 26, 27 , 28 ,29, 30, 31 , 32 , 33 , 34 ,35  )], var)
+sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 12, 13, 15 , 17 , 18, 19,  21, 22, 23,24, 25, 26, 27, 28 ,29, 30, 31   )], var)
 
 #### Measure the kurtosis of each variable ---- 
 
-sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[,c(1,4, 6, 7, 9, 10, 11, 13,14, 15 , 17 , 19, 20 , 21,  25, 26, 27 , 28 ,29, 30, 31 , 32 , 33 , 34 ,35  )], kurtosis, type = 2)
+sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 12, 13, 15 , 17 , 18, 19,  21, 22, 23,24, 25, 26, 27, 28 ,29, 30, 31   )], kurtosis, type = 2)
 
 #### Measure the skewness of each variable ----
 
-sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 10, 11, 13,14, 15 , 17 , 19, 20 , 21,  25, 26, 27 , 28 ,29, 30, 31 , 32 , 33 , 34 ,35  )],  skewness, type = 2)
+sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 12, 13, 15 , 17 , 18, 19,  21, 22, 23,24, 25, 26, 27, 28 ,29, 30, 31   )],  skewness, type = 2)
 
 ## Measures of Relationship ----
 
 ### Measure the correlation between variables ----
 
 
-streamlining_processes_cov <- cov(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 10, 11, 13,14, 15 , 17 , 19, 20 , 21,  25, 26, 27 , 28 ,29, 30, 31 , 32 , 33 , 34 ,35  )])
+streamlining_processes_cov <- cov(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 12, 13, 15 , 17 , 18, 19,  21, 22, 23,24, 25, 26, 27, 28 ,29, 30, 31   )])
 View(streamlining_processes_cov)
 
 ### Measure the covariance between variables ----
 
-streamlining_processes_cor <- cor(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 10, 11, 13,14, 15 , 17 , 19, 20 , 21,  25, 26, 27 , 28 ,29, 30, 31 , 32 , 33 , 34 ,35  )])
+streamlining_processes_cor <- cor(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 12, 13, 15 , 17 , 18, 19,  21, 22, 23,24, 25, 26, 27, 28 ,29, 30, 31   )])
 View(streamlining_processes_cor)
 
 # Inferential Statistics ----
@@ -261,6 +328,9 @@ boxplot(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 26], main = names(STREAMLININ
 library(readr)
 STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- read_csv("data/STREAMLINING PROCESSES AT KINYANJUI FARM.csv")
 
+# Drop specified columns
+columns_to_drop <- c('EmployeeCount', 'EmployeeNumber', 'Over18', 'StandardHours')
+STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, !(names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM) %in% columns_to_drop)]
 
 barplot(table(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 2]), main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[2])
 
@@ -272,9 +342,9 @@ missmap(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, col = c("red", "grey"), legend
 
 ### Create a Correlation Plot ----
 
-corrplot(cor(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 10, 11, 13,14, 15 , 17 , 19, 20 , 21,  25, 26, 27 , 28 ,29, 30, 31 , 32 , 33 , 34 ,35  )]), method = "circle")
+corrplot(cor(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 12, 13, 15 , 17 , 18, 19,  21, 22, 23,24, 25, 26, 27, 28 ,29, 30, 31   )]), method = "circle")
 
-ggcorrplot(cor(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 10, 11, 13,14, 15 , 17 , 19, 20 , 21,  25, 26, 27 , 28 ,29, 30, 31 , 32 , 33 , 34 ,35  )]))
+ggcorrplot(cor(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 12, 13, 15 , 17 , 18, 19,  21, 22, 23,24, 25, 26, 27, 28 ,29, 30, 31   )]))
 
 ### Create a Scatter Plot ----
 
@@ -284,12 +354,15 @@ ggcorrplot(cor(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 10, 11
 # Create scatterplot matrix
 #pairs(numeric_columns, col = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Attrition)
 
-### Create Multivariate Box and Whisker Plots by Class ----
+### Create Multivariate Box and Whisker Plots by Attrition ----
 
 library(readr)
 STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- read_csv("data/STREAMLINING PROCESSES AT KINYANJUI FARM.csv")
 
-featurePlot(x = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 10, 11, 13,14, 15 , 17 , 19, 20 , 21,  25, 26, 27 , 28 ,29, 30, 31 , 32 , 33 , 34 ,35  )], y = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 2],
+# Drop specified columns
+columns_to_drop <- c('EmployeeCount', 'EmployeeNumber', 'Over18', 'StandardHours')
+STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, !(names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM) %in% columns_to_drop)]
+featurePlot(x = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 12, 13, 15 , 17 , 18, 19,  21, 22, 23,24, 25, 26, 27, 28 ,29, 30, 31   )], y = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 2],
             plot = "box")
 
 # Preprocessing and Data Transformation ----
@@ -343,6 +416,10 @@ gg_miss_fct(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, fct = Attrition)
 
 library(readr)
 STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- read_csv("data/STREAMLINING PROCESSES AT KINYANJUI FARM.csv")
+
+# Drop specified columns
+columns_to_drop <- c('EmployeeCount', 'EmployeeNumber', 'Over18', 'StandardHours')
+STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, !(names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM) %in% columns_to_drop)]
 numeric_columns <- sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, is.numeric)
 
 # Extract only numeric columns
@@ -449,8 +526,11 @@ boxplot(streamling_processes_center_transform[, 14], main = names(streamling_pro
 library(readr)
 STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- read_csv("data/STREAMLINING PROCESSES AT KINYANJUI FARM.csv")
 
+# Drop specified columns
+columns_to_drop <- c('EmployeeCount', 'EmployeeNumber', 'Over18', 'StandardHours')
+STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, !(names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM) %in% columns_to_drop)]
 summary(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
-sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(4, 6, 7, 9, 10, 11, 13,14, 15 , 17 , 19, 20 , 21,  25, 26, 27 , 28 ,29, 30, 31 , 32 , 33 , 34 ,35  )], sd)
+sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 12, 13, 15 , 17 , 18, 19,  21, 22, 23,24, 25, 26, 27, 28 ,29, 30, 31   )], sd)
 
 
 model_of_the_transform <- preProcess(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM,
@@ -461,7 +541,7 @@ streamling_processes_standardize_transform <- predict(model_of_the_transform, # 
 
 # AFTER
 summary(streamling_processes_standardize_transform)
-sapply(streamling_processes_standardize_transform[, c(4, 6, 7, 9, 10, 11, 13,14, 15 , 17 , 19, 20 , 21,  25, 26, 27 , 28 ,29, 30, 31 , 32 , 33 , 34 ,35  )], sd)
+sapply(streamling_processes_standardize_transform[, c(1,4, 6, 7, 9, 11, 12, 13, 15 , 17 , 18, 19,  21, 22, 23,24, 25, 26, 27, 28 ,29, 30, 31   )], sd)
 
 
 # Training Model ----
@@ -470,6 +550,586 @@ sapply(streamling_processes_standardize_transform[, c(4, 6, 7, 9, 10, 11, 13,14,
 train_index <- createDataPartition(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Attrition,
                                    p = 0.75,
                                    list = FALSE)
-streamling_processes_train <- STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[train_index, ]
-streamling_processes_test <- STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[-train_index, ]
+train_streamling_processes_train <- STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[train_index, ]
+test_streamling_processes_test <- STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[-train_index, ]
 
+# Check the column names of pima_train
+colnames(train_streamling_processes_train)
+
+## OPTION 1: naiveBayes() function in the e1071 package
+# Train the Naive Bayes model
+e107_streamling_processes_dataset_model_nb_e1071 <-
+  e1071::naiveBayes(Attrition ~ .,
+                    data = train_streamling_processes_train)
+
+# Testing 
+predictions_nb_e1071 <-
+  predict(e107_streamling_processes_dataset_model_nb_e1071,
+          test_streamling_processes_test[, 1:31])
+
+# Check unique levels
+unique_levels_pred <- levels(predictions_nb_e1071)
+unique_levels_actual <- levels(test_streamling_processes_test$Attrition)
+
+# Compare levels
+setdiff(unique_levels_pred, unique_levels_actual)
+setdiff(unique_levels_actual, unique_levels_pred)
+
+# Convert predictions to factor and align levels
+predictions_nb_e1071 <- as.factor(predictions_nb_e1071)
+#levels(predictions_nb_e1071) <- levels(test_streamling_processes_test$Attrition)
+
+#Update Actual Levels to Match Predicted Levels
+test_streamling_processes_test$Attrition <- as.factor(test_streamling_processes_test$Attrition)
+levels(test_streamling_processes_test$Attrition) <- levels(predictions_nb_e1071)
+
+
+# View the Results
+print(predictions_nb_e1071)
+
+# Confusion Matrix
+conf_matrix <- caret::confusionMatrix(predictions_nb_e1071,
+                                      test_streamling_processes_test$Attrition)
+print(conf_matrix)
+
+# The confusion matrix can also be viewed graphically,
+# although with less information.
+plot(table(predictions_nb_e1071,
+           test_streamling_processes_test$`Attrition`))
+
+### Bootstrapping train control 
+
+#train_control <- trainControl(method = "boot", number = 10000)
+
+#streamling_processes_dataset_model_lm <- caret::train(`MonthlyIncome` ~`Attrition` ,
+    #                                  data = train_streamling_processes_train,
+    #                                  trControl = train_control,
+    #                                  method = "lm",
+    #                                  metric = "RMSE")
+
+
+### Test the trained linear regression model using the testing dataset 
+#predictions_lm <- predict(streamling_processes_dataset_model_lm,
+ #                         test_streamling_processes_test[, 1:31])
+
+### View the RMSE and the predicted values for the 9 observations 
+#print(streamling_processes_dataset_model_lm)
+#print(predictions_lm)
+
+### Classification: LDA with k-fold Cross Validation ----
+
+### LDA Attritionifier based on a 5-fold cross validation 
+
+train_control_lda <- trainControl(method = "cv", number = 5)
+
+streamling_dateset_model_lda <-
+  caret::train(`Attrition` ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM,
+               trControl = train_control_lda, na.action = na.omit, method = "lda2",
+               metric = "Accuracy")
+
+### 3.b. Test the trained LDA model using the testing dataset 
+predictions_lda <- predict(streamling_dateset_model_lda,
+                           test_streamling_processes_test[, 1:31])
+
+### 3.c. View the summary of the model and view the confusion matrix
+print(streamling_dateset_model_lda)
+caret::confusionMatrix(predictions_lda, test_streamling_processes_test$Attrition)
+
+plot(table(predictions_lda, test_streamling_processes_test$Attrition))
+
+### Classification: Naive Bayes with Repeated k-fold Cross Validation ----
+### 4.a. Train an e1071::naive Bayes Attritionifier based on the churn variable
+streamling_dateset_model_nb <-
+  e1071::naiveBayes(`Attrition` ~ ., data = train_streamling_processes_train)
+
+### 4.b. Test the trained naive Bayes Attritionifier using the testing dataset 
+predictions_nb_e1071 <-
+  predict(streamling_dateset_model_nb, test_streamling_processes_test[, 1:31])
+
+### 4.c. View a summary of the naive Bayes model and the confusion matrix 
+print(streamling_dateset_model_nb)
+caret::confusionMatrix(predictions_nb_e1071, test_streamling_processes_test$Attrition)
+
+plot(table(predictions_nb_e1071, test_streamling_processes_test$Attrition))
+
+### Classification: SVM with Repeated k-fold Cross Validation ----
+### 5.a. SVM Attritionifier using 5-fold cross validation with 3 reps 
+# We train a Support Vector Machine (for Classification) using "Churn" variable
+# in the training dataset based on a repeated 5-fold cross validation train
+# control with 10 reps.
+
+# The repeated k-fold cross-validation method involves repeating the number of
+# times the dataset is split into k-subsets. The final model accuracy/RMSE is
+# taken as the mean from the number of repeats.
+
+train_control_svm <- trainControl(method = "repeatedcv", number = 5, repeats = 10)
+
+streamling_dateset_model_svm <-
+  caret::train(`Attrition` ~ ., data = train_streamling_processes_train,
+               trControl = train_control_svm, na.action = na.omit,
+               method = "svmLinearWeights2", metric = "Accuracy")
+
+### 5.b. Test the trained SVM model using the testing dataset 
+predictions_svm <- predict(streamling_dateset_model_svm, test_streamling_processes_test[, 1:31])
+
+### 5.c. View a summary of the model and view the confusion matrix 
+print(streamling_dateset_model_svm)
+caret::confusionMatrix(predictions_svm, test_streamling_processes_test$Attrition)
+plot(table(predictions_svm, test_streamling_processes_test$Attrition))
+
+### Classification: Naive Bayes with Leave One Out Cross Validation ----
+# In Leave One Out Cross-Validation (LOOCV), a data instance is left out and a
+# model constructed on all other data instances in the training set. This is
+# repeated for all data instances.
+
+### 6.a. Train a Naive Bayes Attritionifier based on an LOOCV 
+train_control_loocv <- trainControl(method = "LOOCV")
+
+streamling_dateset_model_nb_loocv <-
+  caret::train(`Attrition` ~ ., data = train_streamling_processes_train,
+               trControl = train_control_loocv, na.action = na.omit,
+               method = "naive_bayes", metric = "Accuracy")
+
+### 6.b. Test the trained model using the testing dataset
+predictions_nb_loocv <-
+  predict(streamling_dateset_model_nb_loocv, test_streamling_processes_test[, 1:31])
+
+### 6.c. View the confusion matrix 
+print(streamling_dateset_model_nb_loocv)
+caret::confusionMatrix(predictions_nb_loocv, test_streamling_processes_test$Attrition)
+plot(table(predictions_nb_loocv, test_streamling_processes_test$Attrition))
+
+# Actual Model Algorithm ----
+
+### Train the model ----
+set.seed(7)
+train_control <- trainControl(method = "cv", number = 5)
+streamling_caret_model_svm_radial <- # nolint: object_length_linter.
+  train(Attrition ~ ., data = train_streamling_processes_train, method = "svmRadial",
+        metric = "Accuracy", trControl = train_control)
+
+#### Display the model's details 
+print(streamling_caret_model_svm_radial)
+
+#### Make predictions 
+predictions <- predict(streamling_caret_model_svm_radial,
+                       test_streamling_processes_test[, 1:31])
+
+#### Display the model's evaluation metrics   
+table(predictions, test_streamling_processes_test$Attrition)
+confusion_matrix <-
+  caret::confusionMatrix(predictions,
+                         test_streamling_processes_test[, 1:31]$Attrition)
+print(confusion_matrix)
+
+
+
+# Load required libraries
+library(ggplot2)
+
+# Convert the confusion matrix to a data frame
+conf_matrix_df <- as.data.frame(as.table(confusion_matrix$table))
+
+# Rename columns for clarity
+names(conf_matrix_df) <- c("Reference", "Prediction", "Frequency")
+
+# Plot the confusion matrix as a heatmap
+ggplot(data = conf_matrix_df, aes(x = Reference, y = Prediction, fill = Frequency)) +
+  geom_tile() +
+  geom_text(aes(label = Frequency)) +
+  scale_fill_gradient(low = "white", high = "blue") +
+  labs(title = "Confusion Matrix") +
+  theme_minimal()
+
+
+## Model Performance and Comparison ----
+
+train_control <- trainControl(method = "repeatedcv", number = 10, repeats = 3)
+
+### LDA
+set.seed(7)
+streamling_model_lda <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM,
+                            method = "lda", trControl = train_control)
+
+### CART
+set.seed(7)
+streamling_model_cart <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM,
+                             method = "rpart", trControl = train_control)
+
+### KNN 
+set.seed(7)
+streamling_model_knn <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM,
+                            method = "knn", trControl = train_control)
+
+### SVM 
+set.seed(7)
+streamling_model_svm <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM,
+                            method = "svmRadial", trControl = train_control)
+
+### Random Forest 
+set.seed(7)
+streamling_model_rf <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM,
+                           method = "rf", trControl = train_control)
+
+## 3.b. Call the `resamples` Function
+# We then create a list of the model results and pass the list as an argument
+# to the `resamples` function.
+
+results <- resamples(list(LDA = streamling_model_lda, CART = streamling_model_cart,
+                          KNN = streamling_model_knn, SVM = streamling_model_svm,
+                          RF = streamling_model_rf))
+
+scales <- list(x = list(relation = "free"), y = list(relation = "free"))
+bwplot(results, scales = scales)
+
+scales <- list(x = list(relation = "free"), y = list(relation = "free"))
+dotplot(results, scales = scales)
+
+splom(results)
+
+# xyplot plots to compare models
+xyplot(results, models = c("LDA", "SVM"))
+
+# or
+# xyplot plots to compare models
+xyplot(results, models = c("SVM", "CART"))
+
+diffs <- diff(results)
+
+summary(diffs)
+
+
+# Hyper Parameter Tunning ----
+
+# Apply a "Grid Search" to identify the best parameter value
+# Each axis of the grid is an algorithm parameter, and points on the grid are
+# specific combinations of parameters.
+
+seed <- 7
+metric <- "Accuracy"
+train_control <- trainControl(method = "repeatedcv", number = 10, repeats = 3,
+                              search = "grid")
+set.seed(seed)
+
+getModelInfo("RRFglobal")
+
+# The Regularized Random Forest algorithm exposes the "coefReg" parameter
+# in addition to the "mtry" parameter for tuning.
+## The "mtry" parameter
+# Number of variables randomly sampled as candidates at each split.
+
+## The "coefReg" parameter 
+# It stands for coefficient(s) of regularization.
+# A smaller coefficient may lead to a smaller feature subset, i.e.,
+# there are fewer variables with non-zero importance scores. coefReg must be
+# either a single value (all variables have the same coefficient) or a numeric
+# vector of length equal to the number of predictor variables. default: 0.8
+
+tunegrid <- expand.grid(.mtry = c(1:10),
+                        .coefReg = seq(from = 0.1, to = 1, by = 0.1))
+
+streamling_model_grid_search_rrf_global <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, # nolint
+                                            method = "RRFglobal",
+                                            metric = metric,
+                                            tuneGrid = tunegrid,
+                                            trControl = train_control)
+print(streamling_model_grid_search_rrf_global)
+plot(streamling_model_grid_search_rrf_global)
+
+# Ensemble methods ----
+
+### Boosting ----
+#### AdaBoost.M1 ----
+seed <- 7
+metric <- "Accuracy"
+train_control_em <- trainControl(method = "cv", number = 5)
+
+
+#### Boosting with C5.0 ----
+# C5.0
+set.seed(seed)
+ion_model_c50 <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, method = "C5.0",
+                       metric = metric,
+                       trControl = train_control_em)
+
+####  Boosting with Stochastic Gradient Boosting ----
+set.seed(seed)
+ion_model_gbm <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, method = "gbm",
+                       metric = metric, trControl = train_control_em,
+                       verbose = FALSE)
+
+set.seed(seed)
+ion_model_adaboost <- train(
+  Attrition ~ ., 
+  data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, 
+  method = "AdaBoost.M1",
+  metric = metric,
+  trControl = train_control_em,
+  weights = ifelse(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Attrition == "Yes", 1, 2)
+)
+
+
+# Summarize results 
+boosting_results <-
+  resamples(list("C5.0 boosting ensemble" = ion_model_c50,
+                 "Generalized Boosted Regression Modeling (GBM)" =
+                   ion_model_gbm,
+                 "AdaBoost" = ion_model_adaboost))
+
+summary(boosting_results)
+dotplot(boosting_results)
+
+
+
+# Save and Load your Model ----
+# Saving a model into a file allows you to load it later and use it to make
+# predictions. Saved models can be loaded by calling the `readRDS()` function
+
+saveRDS(streamling_caret_model_svm_radial, "./models/saved_streamling_caret_model_svm_radial.rds")
+# The saved model can then be loaded later as follows:
+loaded_streamling_model_svm <- readRDS("./models/saved_streamling_caret_model_svm_radial.rds")
+print(loaded_streamling_model_svm)
+
+predictions_with_loaded_model <-
+  predict(loaded_streamling_model_svm, newdata = test_streamling_processes_test)
+confusionMatrix(predictions_with_loaded_model, test_streamling_processes_test$Attrition)
+
+to_be_predicted <-
+  data.frame(
+  Age = 41,
+  BusinessTravel = "Travel_Rarely",
+  DailyRate = 1102,
+  Department = "Sales",
+  DistanceFromHome = 1,
+  Education = 2,
+  EducationField = "Life Sciences",
+  EnvironmentSatisfaction = 2,
+  Gender = "Female",
+  HourlyRate = 94,
+  JobInvolvement = 3,
+  JobLevel = 2,
+  JobRole = "Sales Executive",
+  JobSatisfaction = 4,
+  MaritalStatus = "Single",
+  MonthlyIncome = 5993,
+  MonthlyRate = 19479,
+  NumCompaniesWorked = 8,
+  OverTime = "Yes",
+  PercentSalaryHike = 11,
+  PerformanceRating = 3,
+  RelationshipSatisfaction = 1,
+  StockOptionLevel = 0,
+  TotalWorkingYears = 8,
+  TrainingTimesLastYear = 0,
+  WorkLifeBalance = 1,
+  YearsAtCompany = 6,
+  YearsInCurrentRole = 4,
+  YearsSinceLastPromotion = 0,
+  YearsWithCurrManager = 5
+)
+
+predict(loaded_streamling_model_svm, to_be_predicted)
+
+### Make predictions using the model through a function 
+
+predict_attrition <-
+  function(arg_Age, arg_BusinessTravel, arg_DailyRate,
+           arg_Department, arg_DistanceFromHome, arg_Education, arg_EducationField,
+           arg_EnvironmentSatisfaction, arg_Gender,
+           arg_HourlyRate, arg_JobInvolvement, arg_JobLevel, arg_JobRole,
+           arg_JobSatisfaction, arg_MaritalStatus, arg_MonthlyIncome, arg_MonthlyRate,
+           arg_NumCompaniesWorked, arg_OverTime, arg_PercentSalaryHike,
+           arg_PerformanceRating, arg_RelationshipSatisfaction, arg_StockOptionLevel,
+           arg_TotalWorkingYears, arg_TrainingTimesLastYear, arg_WorkLifeBalance, arg_YearsAtCompany,
+           arg_YearsInCurrentRole, arg_YearsSinceLastPromotion, arg_YearsWithCurrManager) {
+    
+    # Create a data frame using the arguments
+    to_be_predicted <- data.frame(Age = arg_Age, 
+                                  BusinessTravel = arg_BusinessTravel, DailyRate = arg_DailyRate,
+                                  Department = arg_Department, DistanceFromHome = arg_DistanceFromHome,
+                                  Education = arg_Education, EducationField = arg_EducationField,
+                                  EnvironmentSatisfaction = arg_EnvironmentSatisfaction, Gender = arg_Gender,
+                                  HourlyRate = arg_HourlyRate, JobInvolvement = arg_JobInvolvement,
+                                  JobLevel = arg_JobLevel, JobRole = arg_JobRole,
+                                  JobSatisfaction = arg_JobSatisfaction, MaritalStatus = arg_MaritalStatus,
+                                  MonthlyIncome = arg_MonthlyIncome, MonthlyRate = arg_MonthlyRate,
+                                  NumCompaniesWorked = arg_NumCompaniesWorked, 
+                                  OverTime = arg_OverTime, PercentSalaryHike = arg_PercentSalaryHike,
+                                  PerformanceRating = arg_PerformanceRating,
+                                  RelationshipSatisfaction = arg_RelationshipSatisfaction,
+                                  StockOptionLevel = arg_StockOptionLevel,
+                                  TotalWorkingYears = arg_TotalWorkingYears,
+                                  TrainingTimesLastYear = arg_TrainingTimesLastYear,
+                                  WorkLifeBalance = arg_WorkLifeBalance, YearsAtCompany = arg_YearsAtCompany,
+                                  YearsInCurrentRole = arg_YearsInCurrentRole,
+                                  YearsSinceLastPromotion = arg_YearsSinceLastPromotion,
+                                  YearsWithCurrManager = arg_YearsWithCurrManager)
+    
+    # Make a prediction based on the data frame
+    predict(loaded_streamling_model_svm, to_be_predicted)
+  }
+predict_attrition(41,
+                 "Travel_Rarely",
+                 1102,
+                 "Sales",
+                 1,
+                 2,
+                "Life Sciences",
+                 2,
+                 "Female",
+                 94,
+                 3,
+                 2,
+                 "Sales Executive",
+                 4,
+                 "Single",
+                 5993,
+                 19479,
+                 8,
+                 "Yes",
+                 11,
+                 3,
+                 1,
+                 0,
+                 8,
+                 0,
+                 1,
+                 6,
+                 4,
+                 0,
+                 5)
+
+#  Plumber API ----  
+
+### Process a Plumber API ----
+# This allows us to process a plumber API
+api <- plumber::plumb("PlumberAPI.R")
+
+### Run the API on a specific port ----
+# Specify a constant localhost port to use
+api$run(host = "127.0.0.1", port = 5022)
+
+
+### Generate the URL required to access the API ----
+
+# We set this as a constant port 5022 running on localhost
+base_url <- "http://127.0.0.1:5022/Attrition"
+
+params <- list(
+  Age = 41,
+  BusinessTravel = "Travel_Rarely",
+  DailyRate = 1102,
+  Department = "Sales",
+  DistanceFromHome = 1,
+  Education = 2,
+  EducationField = "Life Sciences",
+  EnvironmentSatisfaction = 2,
+  Gender = "Female",
+  HourlyRate = 94,
+  JobInvolvement = 3,
+  JobLevel = 2,
+  JobRole = "Sales Executive",
+  JobSatisfaction = 4,
+  MaritalStatus = "Single",
+  MonthlyIncome = 5993,
+  MonthlyRate = 19479,
+  NumCompaniesWorked = 8,
+  OverTime = "Yes",
+  PercentSalaryHike = 11,
+  PerformanceRating = 3,
+  RelationshipSatisfaction = 1,
+  StockOptionLevel = 0,
+  TotalWorkingYears = 8,
+  TrainingTimesLastYear = 0,
+  WorkLifeBalance = 1,
+  YearsAtCompany = 6,
+  YearsInCurrentRole = 4,
+  YearsSinceLastPromotion = 0,
+  YearsWithCurrManager = 5
+)
+
+query_url <- httr::modify_url(url = base_url, query = params)
+print(query_url)
+model_prediction <- GET(query_url)
+content(model_prediction)
+content(model_prediction)[[1]]
+
+# Parse the response into the right format 
+model_prediction_raw <- content(model_prediction, as = "text",
+                                encoding = "utf-8")
+jsonlite::fromJSON(model_prediction_raw)
+
+get_attrition_predictions <-
+  function(arg_Age, arg_BusinessTravel, arg_DailyRate,
+           arg_Department, arg_DistanceFromHome, arg_Education, arg_EducationField,
+           arg_EnvironmentSatisfaction, arg_Gender,
+           arg_HourlyRate, arg_JobInvolvement, arg_JobLevel, arg_JobRole,
+           arg_JobSatisfaction, arg_MaritalStatus, arg_MonthlyIncome, arg_MonthlyRate,
+           arg_NumCompaniesWorked, arg_OverTime, arg_PercentSalaryHike,
+           arg_PerformanceRating, arg_RelationshipSatisfaction, arg_StockOptionLevel,
+           arg_TotalWorkingYears, arg_TrainingTimesLastYear, arg_WorkLifeBalance, arg_YearsAtCompany,
+           arg_YearsInCurrentRole, arg_YearsSinceLastPromotion, arg_YearsWithCurrManager) {
+    
+    base_url <- "http://127.0.0.1:5022/Attrition"
+    
+    params <- list(Age = arg_Age, 
+                    BusinessTravel = arg_BusinessTravel, DailyRate = arg_DailyRate,
+                    Department = arg_Department, DistanceFromHome = arg_DistanceFromHome,
+                    Education = arg_Education, EducationField = arg_EducationField,
+                    EnvironmentSatisfaction = arg_EnvironmentSatisfaction, Gender = arg_Gender,
+                    HourlyRate = arg_HourlyRate, JobInvolvement = arg_JobInvolvement,
+                    JobLevel = arg_JobLevel, JobRole = arg_JobRole,
+                    JobSatisfaction = arg_JobSatisfaction, MaritalStatus = arg_MaritalStatus,
+                    MonthlyIncome = arg_MonthlyIncome, MonthlyRate = arg_MonthlyRate,
+                    NumCompaniesWorked = arg_NumCompaniesWorked, 
+                    OverTime = arg_OverTime, PercentSalaryHike = arg_PercentSalaryHike,
+                    PerformanceRating = arg_PerformanceRating,
+                    RelationshipSatisfaction = arg_RelationshipSatisfaction,
+                    StockOptionLevel = arg_StockOptionLevel,
+                    TotalWorkingYears = arg_TotalWorkingYears,
+                    TrainingTimesLastYear = arg_TrainingTimesLastYear,
+                    WorkLifeBalance = arg_WorkLifeBalance, YearsAtCompany = arg_YearsAtCompany,
+                    YearsInCurrentRole = arg_YearsInCurrentRole,
+                    YearsSinceLastPromotion = arg_YearsSinceLastPromotion,
+                    YearsWithCurrManager = arg_YearsWithCurrManager)
+    
+    query_url <- modify_url(url = base_url, query = params)
+    
+    model_prediction <- GET(query_url)
+    
+    model_prediction_raw <- content(model_prediction, as = "text",
+                                    encoding = "utf-8")
+    
+    jsonlite::fromJSON(model_prediction_raw)
+  }
+
+get_attrition_predictions(41,
+                  "Travel_Rarely",
+                  1102,
+                  "Sales",
+                  1,
+                  2,
+                  "Life Sciences",
+                  2,
+                  "Female",
+                  94,
+                  3,
+                  2,
+                  "Sales Executive",
+                  4,
+                  "Single",
+                  5993,
+                  19479,
+                  8,
+                  "Yes",
+                  11,
+                  3,
+                  1,
+                  0,
+                  8,
+                  0,
+                  1,
+                  6,
+                  4,
+                  0,
+                  5)
