@@ -185,16 +185,18 @@ if (require("caret")) {
 # STEP 1. The commenting below makes R recognize the code as the definition of
 # an API, i.e., #* comments.
 
+loaded_streamling_model_svm <- readRDS("./models/saved_streamling_caret_model_svm_radial.rds")
+
 #* @apiTitle Employee  Attrition  Prediction Model API
 #* @apiDescription Used to predict employee attrition.
 
 #* @param arg_Age Age of the employee
 #* @param arg_BusinessTravel Business travel frequency ("Travel_Rarely", "Travel_Frequently", "Non-Travel")
 #* @param arg_DailyRate Daily rate of the employee
-#* @param arg_Department Department in which the employee works ( "sales" , "Research & Development")
+#* @param arg_Department Department in which the employee works ( "Sales" , "Research & Development")
 #* @param arg_DistanceFromHome Distance from home to workplace ( 1 - 10)
 #* @param arg_Education Employee's education level (1-5)
-#* @param arg_EducationField Field of education (Medical, "Life science", "Others", "Marketing " , "Technical Degree" , "Human Resource")
+#* @param arg_EducationField Field of education (Medical, "Life Sciences", "Others", "Marketing " , "Technical Degree" , "Human Resource")
 #* @param arg_EnvironmentSatisfaction Employee's satisfaction with the work environment (1-4)
 #* @param arg_Gender Employee's gender ("Male", "Female")
 #* @param arg_HourlyRate Hourly rate of the employee
@@ -238,22 +240,22 @@ predict_employee_attrition <- function(arg_Age, arg_BusinessTravel, arg_DailyRat
     DailyRate = as.numeric(arg_DailyRate),
     Department = as.factor(arg_Department),
     DistanceFromHome = as.numeric(arg_DistanceFromHome),
-    Education = as.factor(arg_Education),
+    Education = as.numeric(arg_Education),
     EducationField = as.factor(arg_EducationField),
     EnvironmentSatisfaction = as.numeric(arg_EnvironmentSatisfaction),
     Gender = as.factor(arg_Gender),
     HourlyRate = as.numeric(arg_HourlyRate),
     JobInvolvement = as.numeric(arg_JobInvolvement),
-    JobLevel = as.factor(arg_JobLevel),
+    JobLevel = as.numeric(arg_JobLevel),
     JobRole = as.factor(arg_JobRole),
-    JobSatisfaction = as.factor(arg_JobSatisfaction),
+    JobSatisfaction = as.numeric(arg_JobSatisfaction),
     MaritalStatus = as.factor(arg_MaritalStatus),
     MonthlyIncome = as.numeric(arg_MonthlyIncome),
     MonthlyRate = as.numeric(arg_MonthlyRate),
     NumCompaniesWorked = as.numeric(arg_NumCompaniesWorked),
     OverTime = as.factor(arg_OverTime),
     PercentSalaryHike = as.numeric(arg_PercentSalaryHike),
-    PerformanceRating = as.factor(arg_PerformanceRating),
+    PerformanceRating = as.numeric(arg_PerformanceRating),
     RelationshipSatisfaction = as.numeric(arg_RelationshipSatisfaction),
     StockOptionLevel = as.numeric(arg_StockOptionLevel),
     TotalWorkingYears = as.numeric(arg_TotalWorkingYears),
@@ -265,6 +267,8 @@ predict_employee_attrition <- function(arg_Age, arg_BusinessTravel, arg_DailyRat
     YearsWithCurrManager = as.numeric(arg_YearsWithCurrManager)
   )
   
+  # Make a prediction based on the data frame
+  predict(loaded_streamling_model_svm, to_be_predicted)
 }
   
 
