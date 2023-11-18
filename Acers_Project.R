@@ -1015,38 +1015,40 @@ api$run(host = "127.0.0.1", port = 5022)
 # We set this as a constant port 5022 running on localhost
 base_url <- "http://127.0.0.1:5022/Attrition"
 
-params <- list(
-  Age = 41,
-  BusinessTravel = "Travel_Rarely",
-  DailyRate = 1102,
-  Department = "Sales",
-  DistanceFromHome = 1,
-  Education = 2,
-  EducationField = "Life Sciences",
-  EnvironmentSatisfaction = 2,
-  Gender = "Female",
-  HourlyRate = 94,
-  JobInvolvement = 3,
-  JobLevel = 2,
-  JobRole = "Sales Executive",
-  JobSatisfaction = 4,
-  MaritalStatus = "Single",
-  MonthlyIncome = 5993,
-  MonthlyRate = 19479,
-  NumCompaniesWorked = 8,
-  OverTime = "Yes",
-  PercentSalaryHike = 11,
-  PerformanceRating = 3,
-  RelationshipSatisfaction = 1,
-  StockOptionLevel = 0,
-  TotalWorkingYears = 8,
-  TrainingTimesLastYear = 0,
-  WorkLifeBalance = 1,
-  YearsAtCompany = 6,
-  YearsInCurrentRole = 4,
-  YearsSinceLastPromotion = 0,
-  YearsWithCurrManager = 5
+params <- data.frame(
+  arg_Age = 41,
+  arg_BusinessTravel = "Travel_Rarely",
+  arg_DailyRate = 1102,
+  arg_Department = "Sales",
+  arg_DistanceFromHome = 1,
+  arg_Education = 2,
+  arg_EducationField = "Life Sciences",
+  arg_EnvironmentSatisfaction = 2,
+  arg_Gender = "Female",
+  arg_HourlyRate = 94,
+  arg_JobInvolvement = 3,
+  arg_JobLevel = 2,
+  arg_JobRole = "Sales Executive",
+  arg_JobSatisfaction = 4,
+  arg_MaritalStatus = "Single",
+  arg_MonthlyIncome = 5993,
+  arg_MonthlyRate = 19479,
+  arg_NumCompaniesWorked = 8,
+  arg_OverTime = "Yes",
+  arg_PercentSalaryHike = 11,
+  arg_PerformanceRating = 3,
+  arg_RelationshipSatisfaction = 1,
+  arg_StockOptionLevel = 0,
+  arg_TotalWorkingYears = 8,
+  arg_TrainingTimesLastYear = 0,
+  arg_WorkLifeBalance = 1,
+  arg_YearsAtCompany = 6,
+  arg_YearsInCurrentRole = 4,
+  arg_YearsSinceLastPromotion = 0,
+  arg_YearsWithCurrManager = 5
 )
+
+
 
 query_url <- httr::modify_url(url = base_url, query = params)
 print(query_url)
@@ -1072,26 +1074,39 @@ get_attrition_predictions <-
     
     base_url <- "http://127.0.0.1:5022/Attrition"
     
-    params <- list(Age = arg_Age, 
-                    BusinessTravel = arg_BusinessTravel, DailyRate = arg_DailyRate,
-                    Department = arg_Department, DistanceFromHome = arg_DistanceFromHome,
-                    Education = arg_Education, EducationField = arg_EducationField,
-                    EnvironmentSatisfaction = arg_EnvironmentSatisfaction, Gender = arg_Gender,
-                    HourlyRate = arg_HourlyRate, JobInvolvement = arg_JobInvolvement,
-                    JobLevel = arg_JobLevel, JobRole = arg_JobRole,
-                    JobSatisfaction = arg_JobSatisfaction, MaritalStatus = arg_MaritalStatus,
-                    MonthlyIncome = arg_MonthlyIncome, MonthlyRate = arg_MonthlyRate,
-                    NumCompaniesWorked = arg_NumCompaniesWorked, 
-                    OverTime = arg_OverTime, PercentSalaryHike = arg_PercentSalaryHike,
-                    PerformanceRating = arg_PerformanceRating,
-                    RelationshipSatisfaction = arg_RelationshipSatisfaction,
-                    StockOptionLevel = arg_StockOptionLevel,
-                    TotalWorkingYears = arg_TotalWorkingYears,
-                    TrainingTimesLastYear = arg_TrainingTimesLastYear,
-                    WorkLifeBalance = arg_WorkLifeBalance, YearsAtCompany = arg_YearsAtCompany,
-                    YearsInCurrentRole = arg_YearsInCurrentRole,
-                    YearsSinceLastPromotion = arg_YearsSinceLastPromotion,
-                    YearsWithCurrManager = arg_YearsWithCurrManager)
+    params <- list(
+      arg_Age = arg_Age,
+      arg_BusinessTravel = arg_BusinessTravel,
+      arg_DailyRate = arg_DailyRate,
+      arg_Department = arg_Department,
+      arg_DistanceFromHome = arg_DistanceFromHome,
+      arg_Education = arg_Education,
+      arg_EducationField = arg_EducationField,
+      arg_EnvironmentSatisfaction = arg_EnvironmentSatisfaction,
+      arg_Gender = arg_Gender,
+      arg_HourlyRate = arg_HourlyRate,
+      arg_JobInvolvement = arg_JobInvolvement,
+      arg_JobLevel = arg_JobLevel,
+      arg_JobRole = arg_JobRole,
+      arg_JobSatisfaction = arg_JobSatisfaction,
+      arg_MaritalStatus = arg_MaritalStatus,
+      arg_MonthlyIncome = arg_MonthlyIncome,
+      arg_MonthlyRate = arg_MonthlyRate,
+      arg_NumCompaniesWorked = arg_NumCompaniesWorked,
+      arg_OverTime = arg_OverTime,
+      arg_PercentSalaryHike = arg_PercentSalaryHike,
+      arg_PerformanceRating = arg_PerformanceRating,
+      arg_RelationshipSatisfaction = arg_RelationshipSatisfaction,
+      arg_StockOptionLevel = arg_StockOptionLevel,
+      arg_TotalWorkingYears = arg_TotalWorkingYears,
+      arg_TrainingTimesLastYear = arg_TrainingTimesLastYear,
+      arg_WorkLifeBalance = arg_WorkLifeBalance,
+      arg_YearsAtCompany = arg_YearsAtCompany,
+      arg_YearsInCurrentRole = arg_YearsInCurrentRole,
+      arg_YearsSinceLastPromotion = arg_YearsSinceLastPromotion,
+      arg_YearsWithCurrManager = arg_YearsWithCurrManager
+    )
+    
     
     query_url <- modify_url(url = base_url, query = params)
     
@@ -1133,3 +1148,4 @@ get_attrition_predictions(41,
                   4,
                   0,
                   5)
+
