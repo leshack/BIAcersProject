@@ -1,7 +1,7 @@
 ---
-title: "Business Intelligence Lab Submission Markdown"
+title: "Business Intelligence Project"
 author: "Acers Team"
-date: "16th November 2023"
+date: "20th November 2023"
 output:
   github_document: 
     toc: yes
@@ -11,45 +11,49 @@ output:
     df_print: default
 editor_options:
   chunk_output_type: console
+  markdown: 
+    wrap: 72
 ---
-------------------------------------------------------------------------
 
+------------------------------------------------------------------------
 
 # Student Details
 
-+----------------------+---------------------------------------------+
-| **Student ID Numbers | *\<list one student name, group, and ID per |
-| and Names of Group   | line; you should be between 2 and 5 members |
-| Members**            | per group\>*                                |
-|                      |                                             |
-|                      | 1.  122790 - C - Bwalley Nicholas           |
-|                      |                                             |
-|                      | 2.  133834 - C - Mongare Sarah              |
-|                      |                                             |
-|                      | 3.  133928 - C - Cheptoi Millicent          |
-|                      |                                             |
-|                      | 4.  134879 - C - Tulienge Lesley            |
-|                      |                                             |
-|                      | 5.  124461 - C - Kinya Angela               |
-+----------------------+---------------------------------------------+
-| **GitHub Classroom   | Acers Team                                  |
-| Group Name**         |                                             |
-+----------------------+---------------------------------------------+
-| **Course Code**      | BBT4206                                     |
-+----------------------+---------------------------------------------+
-| **Course Name**      | Business Intelligence II                    |
-+----------------------+---------------------------------------------+
-| **Program**          | Bachelor of Business Information Technology |
-+----------------------+---------------------------------------------+
-| **Semester           | 21^st^ August 2023 to 28^th^ November 2023  |
-| Duration**           |                                             |
-+----------------------+---------------------------------------------+
++-----------------+----------------------------------------+
+| **Student ID    | 1.  122790 - C - Bwalley Nicholas      |
+| Numbers and     |                                        |
+| Names of Group  | 2.  133834 - C - Mongare Sarah         |
+| Members**       |                                        |
+|                 | 3.  133928 - C - Cheptoi Millicent     |
+|                 |                                        |
+|                 | 4.  134879 - C - Tulienge Lesley       |
+|                 |                                        |
+|                 | 5.  124461 - C - Kinya Angela          |
++-----------------+----------------------------------------+
+| **GitHub        | Acers Team                             |
+| Classroom Group |                                        |
+| Name**          |                                        |
++-----------------+----------------------------------------+
+| **Course Code** | BBT4206                                |
++-----------------+----------------------------------------+
+| **Course Name** | Business Intelligence II               |
++-----------------+----------------------------------------+
+| **Program**     | Bachelor of Business Information       |
+|                 | Technology                             |
++-----------------+----------------------------------------+
+| **Semester      | 21^st^ August 2023 to 28^th^ November  |
+| Duration**      | 2023                                   |
++-----------------+----------------------------------------+
 
 # Setup Chunk
 
-**Note:** the following KnitR options have been set as the global defaults: <BR> `knitr::opts_chunk$set(echo = TRUE, warning = FALSE, eval = TRUE, collapse = FALSE, tidy = TRUE)`.
+**Note:** the following KnitR options have been set as the global
+defaults: <BR>
+`knitr::opts_chunk$set(echo = TRUE, warning = FALSE, eval = TRUE, collapse = FALSE, tidy = TRUE)`.
 
-More KnitR options are documented here <https://bookdown.org/yihui/rmarkdown-cookbook/chunk-options.html> and here <https://yihui.org/knitr/options/>.
+More KnitR options are documented here
+<https://bookdown.org/yihui/rmarkdown-cookbook/chunk-options.html> and
+here <https://yihui.org/knitr/options/>.
 
 ```{r setup, include=FALSE}
 library(formatR)
@@ -59,24 +63,26 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Understanding the Dataset (Exploratory Data Analysis (EDA))
-
 ## Downloading the Dataset
 
 ### Source:
 
-The dataset that was used can be downloaded here: *\<<https://drive.google.com/drive/folders/1-BGEhfOwquXF6KKXwcvrx7WuZXuqmW9q?usp=sharing>\>*
+The dataset that was used can be downloaded here:
+
+<https://www.kaggle.com/code/faressayah/ibm-hr-analytics-employee-attrition-performance/input>
 
 ### Reference:
 
-*\<Cite the dataset here using APA\>\
-Refer to the APA 7th edition manual for rules on how to cite datasets: <https://apastyle.apa.org/style-grammar-guidelines/references/examples/data-set-references>*
+F. (2018). IBM HR Analytics Employee Attrition & Performance. Kaggle.
+<https://www.kaggle.com/code/faressayah/ibm-hr-analytics-employee-attrition-performance/input>
 
 # Install and load all the packages
 
 We installed all the packages that will enable us execute this lab.
 
 ```{r Your first Code Chunk}
+#Loading Packages 
+
 if (!is.element("languageserver", installed.packages()[, 1])) {
   install.packages("languageserver", dependencies = TRUE)
 }
@@ -156,11 +162,77 @@ if (require("FactoMineR")) {
                    repos = "https://cloud.r-project.org")
 }
 
+# STEP 1. Install and Load the Required Packages ----
+## randomForest ----
+if (require("randomForest")) {
+  require("randomForest")
+} else {
+  install.packages("randomForest", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
 
+## RRF ----
+if (require("RRF")) {
+  require("RRF")
+} else {
+  install.packages("RRF", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+## caretEnsemble ----
+if (require("caretEnsemble")) {
+  require("caretEnsemble")
+} else {
+  install.packages("caretEnsemble", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+
+## C50 ----
+if (require("C50")) {
+  require("C50")
+} else {
+  install.packages("C50", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+
+## adabag ----
+if (require("adabag")) {
+  require("adabag")
+} else {
+  install.packages("adabag", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+## plumber ----
+if (require("plumber")) {
+  require("plumber")
+} else {
+  install.packages("plumber", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+## httr ----
+if (require("httr")) {
+  require("httr")
+} else {
+  install.packages("httr", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+
+## jsonlite ----
+if (require("jsonlite")) {
+  require("jsonlite")
+} else {
+  install.packages("jsonlite", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
 
 ```
 
 # Loading the Dataset
+
+we are using `readr` to load a data from IBM HR Analytics Employee
+Attrition & Performance.The dataset has 1470 observation and 31
+variables. Employees are the backbone of the organization.
+Organization's performance is heavily based on the quality of the
+employees.
 
 ```{r Your second Code Chunk}
 
@@ -173,7 +245,12 @@ View(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
 
 # Exploratory Data Analysis
 
-We created a subset of the variables to be included in the new dataset. We 14 features and 80 random observations to be included in the dataset.
+we used this approach to analyzing data sets to summarize their main
+characteristics, often with the help of statistical graphics and other
+data visualization methods. We then drop 'EmployeeCount', 'Over18',
+'StandardHours' have only one unique values and 'EmployeeNumber' has
+1470 unique values. This features aren't useful for us, So we are going
+to drop those columns from the dataset
 
 ```{r Your third Code Chunk}
 ## Dimensions ----
@@ -197,12 +274,29 @@ columns_to_drop <- c('EmployeeCount', 'EmployeeNumber', 'Over18', 'StandardHours
 STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, !(names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM) %in% columns_to_drop)]
 View(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
 
-
 ```
 
-## STEP 1: Descriptive Statistics 
+### Descriptive Statistics
 
-### Measures of Frequency 
+Descriptive statistics are a set of techniques and metrics used to
+summarize and describe the main features, characteristics, and patterns
+within a dataset. These statistics provide a snapshot of the data's
+distribution, central tendency, variability, and other important
+properties.Before you can effectively use your data for tasks like
+building prediction models or drawing meaningful conclusions, it's
+crucial to have a deep understanding of the dataset.Understanding the
+context is essential for making informed decisions based on those
+results
+
+#### Measures of Frequency
+
+This code calculates and displays the frequency and mode (most common
+value) for several categorical variables in a dataset, helping to
+understand the data's distribution and identify prevalent values.Some
+datasets show relatively even distributions, while others have dominant
+categories. The frequencies provide insights into the composition of
+each dataset. we did this to show categorical variables Gender, JobRole
+and BusinessTravel.
 
 ```{r Your fourth Code Chunk}
 #### Identify the number of instances that belong to Gender ----
@@ -222,9 +316,8 @@ cbind(frequency = table(streamlining_processes_freq),
       percentage = prop.table(table(streamlining_processes_freq)) * 100)
 ```
 
-## Measures of Central Tendency 
+#### Measures of Central Tendency
 
-### Mode 
 ```{r Your fifth Code Chunk}
 streamlining_processes_gender_mode <- names(table(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Gender))[
   which(table(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Gender) == max(table(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Gender)))
@@ -244,7 +337,27 @@ print(streamlining_processes_businessRole_mode)
 
 ```
 
-## Measures of Distribution/Dispersion/Spread/Scatter/Variability 
+#### Measures of Distribution/Dispersion/Spread/Scatter/Variability
+
+The code chunk provides various measures of distribution, dispersion,
+and variability for selected variables in the
+'STREAMLINING_PROCESSES_AT_KINYANJUI_FARM' dataset. It includes a
+summary of the dataset, calculates `standard deviation`, `variance`,
+`kurtosis`, and `skewness` for specific columns, offering insights into
+the spread and shape of the data distribution. `Standard deviation`
+measures the dispersion or spread of data points around the mean,
+providing insight into data variability. `Variance`measures the spread
+or dispersion of a set of values. A higher variance indicates greater
+variability from the mean, while a lower variance suggests that the
+values are closer to the mean. `Kurtosis` measures the shape of the
+probability distribution of a real-valued random variable. Positive
+kurtosis indicates a relatively peaked distribution (heavy tails), while
+negative kurtosis indicates a flatter distribution (light
+tails).`Skewness`measures the asymmetry of the probability distribution
+of a real-valued random variable. Positive skewness indicates a
+distribution that is skewed to the right (tail on the right), while
+negative skewness indicates a distribution that is skewed to the left
+(tail on the left).
 
 ```{r Your sixth Code Chunk}
 summary(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
@@ -269,16 +382,19 @@ sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 12, 13, 15
 
 ```
 
-## Measures of Relationship 
+#### Measures of Relationship
 
-### Measure the correlation between variables 
+`Measures of Relationship` quantify associations between variables. The Pearson correlation coefficient assesses linear relationships, covariance measures changes together, and the slope of the regression line indicates the strength of a linear relationship. R-squared explains the variance in the dependent variable, and rank correlation coefficients assess monotonic relationships. These measures aid in understanding the extent and nature of connections in data analysis
+
+##### Measure the correlation between variables
 
 ```{r Your seventh Code Chunk}
 streamlining_processes_cov <- cov(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 12, 13, 15 , 17 , 18, 19,  21, 22, 23,24, 25, 26, 27, 28 ,29, 30, 31   )])
 View(streamlining_processes_cov)
 
 ```
-### Measure the covariance between variables 
+
+##### Measure the covariance between variables
 
 ```{r Your eighth Code Chunk}
 streamlining_processes_cor <- cor(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 12, 13, 15 , 17 , 18, 19,  21, 22, 23,24, 25, 26, 27, 28 ,29, 30, 31   )])
@@ -286,7 +402,20 @@ View(streamlining_processes_cor)
 
 ```
 
-# STEP 4. Inferential Statistics 
+### Inferential Statistics
+
+Inferential statistics involves drawing conclusions about a population
+based on a sample of data. It uses probability theory to make
+inferences, such as estimating population parameters or testing
+hypotheses. Techniques include hypothesis testing, confidence intervals,
+and regression analysis. Inferential statistics helps generalize
+findings from a sample to the larger population, providing insights
+beyond the observed data.This code fits a one-way ANOVA model where Age
+is the dependent variable, and Attrition is the categorical independent
+variable.determine if there is a significant difference in the means of
+the 'Age' variable across different levels of 'Attrition'.it further
+fits a two-way ANOVA model, considering both Attrition and Gender as
+categorical independent variables affecting the dependent variable Age.
 
 ```{r Your nine Code Chunk}
 # Inferential Statistics ----
@@ -298,10 +427,23 @@ streamlining_processes_two_way_anova <- aov(Age  ~ Attrition + Gender, data = ST
 summary(streamlining_processes_two_way_anova)
 
 ```
-# Basic Visualization 
-## Univariate Plots 
-```{r Your tenth Code Chunk}#
-### Create Histograms for Each Numeric Attribute ----
+
+### Basic Visualization
+
+#### Univariate Plots
+
+Univariate plots are used to explore the distribution and
+characteristics of individual variables in a dataset. Common types of
+univariate plots include histograms, box plots, and density plots, which
+provide insights into the central tendency, spread, and shape of the
+distribution of a single variable. These visualizations are fundamental
+for understanding the nature of individual variables before proceeding
+to more complex analyses
+
+##### Histograms
+
+```{r Your tenth Code Chunk}
+#### Histograms for Each Numeric Attribute ----
 str(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
 
 # Identify numeric columns
@@ -313,12 +455,10 @@ STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- STREAMLINING_PROCESSES_AT_KINYANJUI_
 STREAMLINING_PROCESSES_AT_KINYANJUI_FARM<- sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, as.numeric)
 
 # Set up the layout for multiple histograms
-par(mfrow = c(1, sum(numeric_columns)))
+par(mfrow = c(1,1))
 
 # Plot histograms for numeric columns
-for (i in 1:ncol(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)) {
-  hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, i], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[i])
-}
+
 
 hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 1], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[1])
 hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 4], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[4])
@@ -329,21 +469,15 @@ hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 10], main = names(STREAMLINING_P
 hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 11], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[11])
 hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 13], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[13])
 hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 14], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[14])
-hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 15], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[15])
-hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 17], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[17])
-hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 19], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[19])
-hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 20], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[20])
-hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 21], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[21])
-hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 25], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[25])
-hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 26], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[26])
+
+
 
 ```
 
-### Create Box and Whisker Plots for Each Numeric Attribute 
+##### Box and Whisker Plots for Each Numeric Attribute
 
+```{r Your eleventh Code Chunk}
 # Set up the layout for multiple histograms
-
-```{r Your eleventh Code Chunk}#
 # Plot histograms for numeric columns
 for (i in 1:ncol(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)) {
   jpeg("boxplot.jpg", width = 800, height = 600)
@@ -366,12 +500,12 @@ boxplot(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 17], main = names(STREAMLININ
 boxplot(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 19], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[19])
 boxplot(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 20], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[20])
 boxplot(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 21], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[21])
-boxplot(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 25], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[25])
-boxplot(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 26], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[26])
 
 ```
-### Create Bar Plots for Each Categorical Attribute Gender 
-```{r Your twelveth Code Chunk}#
+
+##### Bar Plots for Each Categorical Attribute Gender
+
+```{r Your twelveth Code Chunk}
 library(readr)
 STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- read_csv("data/STREAMLINING PROCESSES AT KINYANJUI FARM.csv")
 
@@ -382,28 +516,48 @@ STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- STREAMLINING_PROCESSES_AT_KINYANJUI_
 barplot(table(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 2]), main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[2])
 
 ```
-### Create a Missingness Map to Identify Missing Data 
-```{r Your thirteenth Code Chunk}
+
+##### Missingness Map to Identify Missing Data
+
+```{r Your thirteenth Code Chunk, warning=FALSE}
 missmap(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, col = c("red", "grey"), legend = TRUE)
+```
 
-## Multivariate Plots ----
+#### Multivariate Plots
 
-### Create a Correlation Plot ----
+Multivariate Plots involve visualizations that simultaneously represent
+and explore the relationships between two or more variables in a
+dataset. Unlike univariate plots that focus on a single variable,
+multivariate plots provide insights into the interactions and patterns
+between multiple variables. Examples of multivariate plots include
+scatter plots, bubble charts, heatmaps, and 3D plots. These
+visualizations are essential for identifying correlations, trends, and
+dependencies between variables, aiding in a more comprehensive
+understanding of the overall dataset structure. They are particularly
+useful for uncovering complex relationships and patterns in
+multidimensional data
 
+##### Correlation Plot
+
+```{r Your acers Code Chunk}
 corrplot(cor(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 12, 13, 15 , 17 , 18, 19,  21, 22, 23,24, 25, 26, 27, 28 ,29, 30, 31   )]), method = "circle")
 
 ggcorrplot(cor(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 12, 13, 15 , 17 , 18, 19,  21, 22, 23,24, 25, 26, 27, 28 ,29, 30, 31   )]))
+```
 
-### Create a Scatter Plot ----
+##### Scatter Plot
 
+```{r Your acers1 Code Chunk, fig.height=100, fig.width=100}
 # Select only numeric columns
-#numeric_columns <- STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, is.numeric)]
+numeric_columns <- STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, is.numeric)]
 
 # Create scatterplot matrix
-#pairs(numeric_columns, col = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Attrition)
+pairs(numeric_columns, col = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Age)
 
 ```
-### Create Multivariate Box and Whisker Plots by Class 
+
+##### Multivariate Box and Whisker Plots by Class
+
 ```{r Your fourteenth Code Chunk}
 library(readr)
 STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- read_csv("data/STREAMLINING PROCESSES AT KINYANJUI FARM.csv")
@@ -415,8 +569,20 @@ featurePlot(x = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, c(1,4, 6, 7, 9, 11, 1
             plot = "box")
 ```
 
-# Preprocessing and Data Transformation 
-```{r Your fifteenth Code Chunk}#
+# Preprocessing and Data Transformation
+
+Preprocessing and Data Transformation" refer to the steps taken to
+prepare raw data for analysis. This involves cleaning, organizing, and
+modifying the data to improve its quality and make it suitable for
+modeling. Common preprocessing tasks include handling `missing values`,
+`removing outliers`, `scaling or normalizing numerical features`,
+`encoding categorical variables`, and
+`splitting the data into training and testing sets`. Data transformation
+may also involve creating new features or aggregating existing ones.
+These processes are crucial for enhancing the accuracy and effectiveness
+of machine learning models
+
+```{r Your fifteenth Code Chunk}
 ## Confirm the "missingness" in the Initial Dataset ----
 
 # Are there missing values in the dataset?
@@ -440,16 +606,17 @@ miss_var_summary(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
 miss_case_summary(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
 
 # Which variables contain the most missing values?
-gg_miss_var(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
+#gg_miss_var(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
 
 # Where are missing values located (the shaded regions in the plot)?
 vis_miss(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM) + theme(axis.text.x = element_text(angle = 80))
 
 # Which combinations of variables are missing together?
-gg_miss_upset(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
+#gg_miss_upset(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
 ```
 
-# Create a heatmap of "missingness" broken down by "Age"
+#### Heatmap of "missingness" broken down by "Age"
+
 ```{r Your sixteenth Code Chunk}
 # First, confirm that the "AgeDecade" variable is a categorical variable
 is.factor(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Age)
@@ -464,10 +631,13 @@ gg_miss_fct(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, fct = Attrition)
 
 ```
 
-# Data Transformation
+## Data Transformation
+
+#### Scale Data Transform
+
+```{r Your seventeenth Code Chunk}
 # Scale Data Transform 
 # BEFORE
-```{r Your seventeenth Code Chunk}#
 # Identify numeric columns
 
 library(readr)
@@ -484,12 +654,8 @@ STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- STREAMLINING_PROCESSES_AT_KINYANJUI_
 STREAMLINING_PROCESSES_AT_KINYANJUI_FARM<- sapply(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, as.numeric)
 
 # Set up the layout for multiple histograms
-par(mfrow = c(1, sum(numeric_columns)))
+par(mfrow = c(1, 1))
 
-# Plot histograms for numeric columns
-for (i in 1:ncol(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)) {
-  hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, i], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[i])
-}
 summary(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
 
 hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 1], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[1])
@@ -501,13 +667,9 @@ hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 10], main = names(STREAMLINING_P
 hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 11], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[11])
 hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 13], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[13])
 hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 14], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[14])
-hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 15], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[15])
-hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 17], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[17])
-hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 19], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[19])
-hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 20], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[20])
-hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 21], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[21])
-hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 25], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[25])
-hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 26], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[26])
+
+
+
 
 model_of_the_transform <- preProcess(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, method = c("scale"))
 print(model_of_the_transform)
@@ -520,26 +682,18 @@ hist(streamling_processes_scale_transform[, 1], main = names(streamling_processe
 hist(streamling_processes_scale_transform[, 4], main = names(streamling_processes_scale_transform)[4])
 hist(streamling_processes_scale_transform[, 6], main = names(streamling_processes_scale_transform)[6])
 hist(streamling_processes_scale_transform[, 7], main = names(streamling_processes_scale_transform)[7])
-hist(streamling_processes_scale_transform[, 9], main = names(streamling_processes_scale_transform)[9])
-hist(streamling_processes_scale_transform[, 10], main = names(streamling_processes_scale_transform)[10])
-hist(streamling_processes_scale_transform[, 11], main = names(streamling_processes_scale_transform)[11])
-hist(streamling_processes_scale_transform[, 13], main = names(streamling_processes_scale_transform)[13])
-hist(streamling_processes_scale_transform[, 14], main = names(streamling_processes_scale_transform)[14])
-hist(streamling_processes_scale_transform[, 15], main = names(streamling_processes_scale_transform)[15])
-hist(streamling_processes_scale_transform[, 17], main = names(streamling_processes_scale_transform)[17])
-hist(streamling_processes_scale_transform[, 19], main = names(streamling_processes_scale_transform)[19])
-hist(streamling_processes_scale_transform[, 20], main = names(streamling_processes_scale_transform)[20])
-hist(streamling_processes_scale_transform[, 21], main = names(streamling_processes_scale_transform)[21])
-hist(streamling_processes_scale_transform[, 25], main = names(streamling_processes_scale_transform)[25])
-hist(streamling_processes_scale_transform[, 26], main = names(streamling_processes_scale_transform)[26])
-
+hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 9], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[9])
+hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 10], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[10])
+hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 11], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[11])
+hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 13], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[13])
+hist(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 14], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[14])
 
 
 ```
 
+#### Center Data Transform
 
-# Center Data Transform ----
-```{r Your eighteenth Code Chunk}#
+```{r Your eighteenth Code Chunk}
 # BEFORE
 summary(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
 boxplot(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[, 1], main = names(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)[1])
@@ -579,9 +733,10 @@ boxplot(streamling_processes_center_transform[, 13], main = names(streamling_pro
 boxplot(streamling_processes_center_transform[, 14], main = names(streamling_processes_center_transform)[14])
 ```
 
+#### Standardize Data Transform to have a std of 1
 
 ```{r Your nineteenth Code Chunk}
-# Standardize Data Transform to have a std of 1  ----
+
 ### The Standardize Basic Transform on the Boston Housing Dataset ----
 # BEFORE
 
@@ -610,6 +765,30 @@ sapply(streamling_processes_standardize_transform[, c(1,4, 6, 7, 9, 11, 12, 13, 
 
 # Training Models
 
+`Training Models` refers to the process of building and refining
+predictive or descriptive models using machine learning algorithms. In
+this context, "training" involves using a labeled dataset (input data
+paired with corresponding output labels) to teach the model to make
+predictions or classifications. The model learns patterns and
+relationships within the training data, adjusting its internal
+parameters to optimize its performance. The trained model can then be
+evaluated on new, unseen data to assess its generalization ability. The
+goal is to develop a model that accurately captures underlying patterns
+in the data and can make reliable predictions on new, similar data.
+Techniques for training models include regression, classification,
+clustering, and neural networks, among others.
+
+### Split the dataset
+
+We generate random indices for the training set using sample, and then
+we use these indices to extract the corresponding rows from the dataset,
+creating the training and testing datasets
+(train_streamling_processes_train and
+test_streamling_processes_test).Now, you have a 75:25 split of
+theSTREAMLINING_PROCESSES_AT_KINYANJUI_FARM dataset into training and
+testing sets. We use train_streamling_processes_train for model training
+and test_streamling_processes_test for model evaluation.
+
 ```{r Your twenty Code Chunk}
 ## 1. Split the dataset
 train_index <- createDataPartition(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Attrition,
@@ -622,7 +801,8 @@ test_streamling_processes_test <- STREAMLINING_PROCESSES_AT_KINYANJUI_FARM[-trai
 colnames(train_streamling_processes_train)
 ```
 
-## OPTION 1: naiveBayes() function in the e1071 package
+### NaiveBayes() function in the e1071 package
+
 ```{r Your twenty first Code Chunk}
 # Train the Naive Bayes model
 e107_streamling_processes_dataset_model_nb_e1071 <-
@@ -684,10 +864,10 @@ plot(table(predictions_nb_e1071,
 #print(predictions_lm)
 ```
 
-### Classification: LDA with k-fold Cross Validation 
-### LDA Attritionifier based on a 5-fold cross validation 
+#### Classification: LDA with k-fold Cross Validation
 
 ```{r Your twenty second Code Chunk}
+### LDA Attritionifier based on a 5-fold cross validation 
 train_control_lda <- trainControl(method = "cv", number = 5)
 
 streamling_dateset_model_lda <-
@@ -706,7 +886,7 @@ caret::confusionMatrix(predictions_lda, test_streamling_processes_test$Attrition
 plot(table(predictions_lda, test_streamling_processes_test$Attrition))
 ```
 
-### Classification: Naive Bayes with Repeated k-fold Cross Validation ----
+#### Classification: Naive Bayes with Repeated k-fold Cross Validation ----
 
 ```{r Your twenty third Code Chunk}
 ### 4.a. Train an e1071::naive Bayes Attritionifier based on the churn variable
@@ -724,8 +904,9 @@ caret::confusionMatrix(predictions_nb_e1071, test_streamling_processes_test$Attr
 plot(table(predictions_nb_e1071, test_streamling_processes_test$Attrition))
 ```
 
-### Classification: SVM with Repeated k-fold Cross Validation 
-```{r Your twenty fourth Code Chunk}#
+#### Classification: SVM with Repeated k-fold Cross Validation
+
+```{r Your twenty fourth Code Chunk }
 ### 5.a. SVM Attritionifier using 5-fold cross validation with 3 reps 
 # We train a Support Vector Machine (for Classification) using "Churn" variable
 # in the training dataset based on a repeated 5-fold cross validation train
@@ -751,8 +932,9 @@ caret::confusionMatrix(predictions_svm, test_streamling_processes_test$Attrition
 plot(table(predictions_svm, test_streamling_processes_test$Attrition))
 ```
 
-### Classification: Naive Bayes with Leave One Out Cross Validation 
-```{r Your twenty fifth Code Chunk}#
+#### Classification: Naive Bayes with Leave One Out Cross Validation
+
+```{r Your twenty fifth Code Chunk }
 # In Leave One Out Cross-Validation (LOOCV), a data instance is left out and a
 # model constructed on all other data instances in the training set. This is
 # repeated for all data instances.
@@ -776,9 +958,19 @@ caret::confusionMatrix(predictions_nb_loocv, test_streamling_processes_test$Attr
 plot(table(predictions_nb_loocv, test_streamling_processes_test$Attrition))
 ```
 
-# Actual Model Algorithm 
-### Train the model
+### Actual Our Model Algorithm
+
+The decision to employ a Support Vector Machine (SVM) with a radial
+basis function (RBF) kernel is justified by its superior accuracy
+compared to alternatives like Linear Discriminant Analysis (LDA). The
+SVM-RBF combination excels in capturing complex, non-linear patterns,
+handles high-dimensional spaces adeptly, exhibits robustness to
+outliers, and offers flexible parameter tuning. These traits
+collectively contribute to its efficacy in achieving accurate
+predictions, especially on unseen data
+
 ```{r Your twenty sixth Code Chunk}
+### Train the model
 set.seed(7)
 train_control <- trainControl(method = "cv", number = 5)
 streamling_caret_model_svm_radial <- # nolint: object_length_linter.
@@ -817,9 +1009,20 @@ ggplot(data = conf_matrix_df, aes(x = Reference, y = Prediction, fill = Frequenc
   labs(title = "Confusion Matrix") +
   theme_minimal()
 ```
-  
-## Model Performance and Comparison 
-```{r Your twenty seventh Code Chunk}#
+
+## Model Performance and Comparison
+
+The code performs model training and comparison for predicting
+'Attrition' using different algorithms. It sets up a repeated
+cross-validation control (train_control), then trains models using
+Linear Discriminant Analysis (LDA), Classification and Regression Trees
+(CART), k-Nearest Neighbors (KNN), Support Vector Machine with radial
+kernel (SVM), and Random Forest. The goal is to evaluate and compare the
+performance of these models using the specified training control
+settings.
+
+```{r Your twenty seventh Code Chunk }
+
 train_control <- trainControl(method = "repeatedcv", number = 10, repeats = 3)
 
 ### LDA
@@ -875,9 +1078,20 @@ diffs <- diff(results)
 summary(diffs)
 ```
 
-# Hyper Parameter Tunning 
+# Hyper Parameter Tunning
 
-```{r Your twenty eighth Code Chunk}#
+`Hyperparameter Tuning` involves optimizing the hyperparameters of a
+machine learning algorithm to enhance model performance. Hyperparameters
+are configuration settings external to the model that influence its
+learning process. The code likely employs techniques like grid search or
+random search to systematically explore different hyperparameter
+combinations for algorithms such as LDA, CART, KNN, SVM, and Random
+Forest. This process aims to find the optimal set of hyperparameters
+that yields the best model performance.
+
+#### Grid Search
+
+```{r Your twenty eighth Code Chunk }
 # Apply a "Grid Search" to identify the best parameter value
 # Each axis of the grid is an algorithm parameter, and points on the grid are
 # specific combinations of parameters.
@@ -914,13 +1128,28 @@ print(streamling_model_grid_search_rrf_global)
 plot(streamling_model_grid_search_rrf_global)
 ```
 
-# Ensemble methods 
-### Boosting 
-#### AdaBoost.M1 
-```{r Your twenty nineth Code Chunk}#
+# Ensemble methods
+
+`Ensemble methods` combine multiple machine learning models to improve
+overall predictive performance and robustness. These methods leverage
+the strengths of different models to compensate for individual
+weaknesses. Common ensemble methods include bagging, boosting, and
+stacking. `Bagging (Random Forest)` builds multiple models in parallel
+and averages their predictions, reducing variance. `Boosting (AdaBoost)`
+focuses on sequentially improving model performance by giving more
+weight to missclassified instances. Stacking combines predictions from
+multiple models using another model as a meta-learner. Ensemble methods
+often outperform individual models, providing more reliable and accurate
+predictions.
+
+### Boosting
+
+#### GBM
+
+```{r Your twenty nineth Code Chunk }
 seed <- 7
 metric <- "Accuracy"
-train_control_em <- trainControl(method = "cv", number = 5)
+train_control <- trainControl(method = "cv", number = 5)
 
 
 #### Boosting with C5.0 ----
@@ -928,37 +1157,25 @@ train_control_em <- trainControl(method = "cv", number = 5)
 set.seed(seed)
 ion_model_c50 <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, method = "C5.0",
                        metric = metric,
-                       trControl = train_control_em)
+                       trControl = train_control)
 
 ####  Boosting with Stochastic Gradient Boosting ----
 set.seed(seed)
 ion_model_gbm <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, method = "gbm",
-                       metric = metric, trControl = train_control_em,
+                       metric = metric, trControl = train_control,
                        verbose = FALSE)
-
-set.seed(seed)
-ion_model_adaboost <- train(
-  Attrition ~ ., 
-  data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, 
-  method = "AdaBoost.M1",
-  metric = metric,
-  trControl = train_control_em,
-  weights = ifelse(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Attrition == "Yes", 1, 2)
-)
-
 
 # Summarize results 
 boosting_results <-
-  resamples(list("C5.0 boosting ensemble" = ion_model_c50,
-                 "Generalized Boosted Regression Modeling (GBM)" =
-                   ion_model_gbm,
-                 "AdaBoost" = ion_model_adaboost))
+  resamples(list("C5.0 boosting ensemble" =ion_model_c50,
+                 "Generalized Boosted Regression Modeling (GBM)" = ion_model_gbm))
 
 summary(boosting_results)
 dotplot(boosting_results)
 ```
 
-# Save and Load your Model ----
+# Save and Load your Model
+
 ```{r Your thirth Code Chunk}
 # Saving a model into a file allows you to load it later and use it to make
 # predictions. Saved models can be loaded by calling the `readRDS()` function
@@ -971,7 +1188,11 @@ print(loaded_streamling_model_svm)
 predictions_with_loaded_model <-
   predict(loaded_streamling_model_svm, newdata = test_streamling_processes_test)
 confusionMatrix(predictions_with_loaded_model, test_streamling_processes_test$Attrition)
+```
 
+#### Making prediction with the model
+
+```{r Your acers2 Code Chunk }
 to_be_predicted <-
   data.frame(
   Age = 41,
@@ -1008,8 +1229,11 @@ to_be_predicted <-
 
 predict(loaded_streamling_model_svm, to_be_predicted)
 
-### Make predictions using the model through a function 
+```
 
+#### Make predictions using the model through a function
+
+```{r Your acers3 Code Chunk }
 predict_attrition <-
   function(arg_Age, arg_BusinessTravel, arg_DailyRate,
            arg_Department, arg_DistanceFromHome, arg_Education, arg_EducationField,
@@ -1078,16 +1302,27 @@ predict_attrition(41,
                  5)
 ```
 
-#  Plumber API ----  
+# Plumber API 
+
+Plumber API in R facilitates the creation of web APIs, enabling seamless integration of R code for data processing and analysis. It transforms R scripts into interactive and accessible web services, enhancing collaboration and data-driven decision-making.
+
+`NB` because we we wanted to execute the plumber API in our md we had run the Plumber API in a separate R process, allowing our R Markdown document to continue executing by using the future package.The on.exit() block is used to stop the Plumber API after all the code chunks have been executed
+
 ```{r Your thirth first  Code Chunk}
+if (!requireNamespace("future", quietly = TRUE)) install.packages("future")
 
-### Process a Plumber API ----
-# This allows us to process a plumber API
-api <- plumber::plumb("PlumberAPI.R")
+library(future)
+# Define a function to start the Plumber API in a separate process
+start_api <- function() {
+  api <- plumber::plumb("PlumberAPI.R")
+  api$run(host = "127.0.0.1", port = 5022, swagger = TRUE)
+}
 
-### Run the API on a specific port ----
-# Specify a constant localhost port to use
-api$run(host = "127.0.0.1", port = 5022)
+# Start the API in a separate process
+future::plan("multisession")  # Use multisession backend for parallel processing
+future({
+  start_api()
+})
 
 
 ### Generate the URL required to access the API ----
@@ -1095,41 +1330,44 @@ api$run(host = "127.0.0.1", port = 5022)
 # We set this as a constant port 5022 running on localhost
 base_url <- "http://127.0.0.1:5022/Attrition"
 
-params <- list(
-  Age = 41,
-  BusinessTravel = "Travel_Rarely",
-  DailyRate = 1102,
-  Department = "Sales",
-  DistanceFromHome = 1,
-  Education = 2,
-  EducationField = "Life Sciences",
-  EnvironmentSatisfaction = 2,
-  Gender = "Female",
-  HourlyRate = 94,
-  JobInvolvement = 3,
-  JobLevel = 2,
-  JobRole = "Sales Executive",
-  JobSatisfaction = 4,
-  MaritalStatus = "Single",
-  MonthlyIncome = 5993,
-  MonthlyRate = 19479,
-  NumCompaniesWorked = 8,
-  OverTime = "Yes",
-  PercentSalaryHike = 11,
-  PerformanceRating = 3,
-  RelationshipSatisfaction = 1,
-  StockOptionLevel = 0,
-  TotalWorkingYears = 8,
-  TrainingTimesLastYear = 0,
-  WorkLifeBalance = 1,
-  YearsAtCompany = 6,
-  YearsInCurrentRole = 4,
-  YearsSinceLastPromotion = 0,
-  YearsWithCurrManager = 5
+params <- data.frame(
+  arg_Age = 41,
+  arg_BusinessTravel = "Travel_Rarely",
+  arg_DailyRate = 1102,
+  arg_Department = "Sales",
+  arg_DistanceFromHome = 1,
+  arg_Education = 2,
+  arg_EducationField = "Life Sciences",
+  arg_EnvironmentSatisfaction = 2,
+  arg_Gender = "Female",
+  arg_HourlyRate = 94,
+  arg_JobInvolvement = 3,
+  arg_JobLevel = 2,
+  arg_JobRole = "Sales Executive",
+  arg_JobSatisfaction = 4,
+  arg_MaritalStatus = "Single",
+  arg_MonthlyIncome = 5993,
+  arg_MonthlyRate = 19479,
+  arg_NumCompaniesWorked = 8,
+  arg_OverTime = "Yes",
+  arg_PercentSalaryHike = 11,
+  arg_PerformanceRating = 3,
+  arg_RelationshipSatisfaction = 1,
+  arg_StockOptionLevel = 0,
+  arg_TotalWorkingYears = 8,
+  arg_TrainingTimesLastYear = 0,
+  arg_WorkLifeBalance = 1,
+  arg_YearsAtCompany = 6,
+  arg_YearsInCurrentRole = 4,
+  arg_YearsSinceLastPromotion = 0,
+  arg_YearsWithCurrManager = 5
 )
+
+
 
 query_url <- httr::modify_url(url = base_url, query = params)
 print(query_url)
+Sys.sleep(10)  
 model_prediction <- GET(query_url)
 content(model_prediction)
 content(model_prediction)[[1]]
@@ -1152,26 +1390,39 @@ get_attrition_predictions <-
     
     base_url <- "http://127.0.0.1:5022/Attrition"
     
-    params <- list(Age = arg_Age, 
-                    BusinessTravel = arg_BusinessTravel, DailyRate = arg_DailyRate,
-                    Department = arg_Department, DistanceFromHome = arg_DistanceFromHome,
-                    Education = arg_Education, EducationField = arg_EducationField,
-                    EnvironmentSatisfaction = arg_EnvironmentSatisfaction, Gender = arg_Gender,
-                    HourlyRate = arg_HourlyRate, JobInvolvement = arg_JobInvolvement,
-                    JobLevel = arg_JobLevel, JobRole = arg_JobRole,
-                    JobSatisfaction = arg_JobSatisfaction, MaritalStatus = arg_MaritalStatus,
-                    MonthlyIncome = arg_MonthlyIncome, MonthlyRate = arg_MonthlyRate,
-                    NumCompaniesWorked = arg_NumCompaniesWorked, 
-                    OverTime = arg_OverTime, PercentSalaryHike = arg_PercentSalaryHike,
-                    PerformanceRating = arg_PerformanceRating,
-                    RelationshipSatisfaction = arg_RelationshipSatisfaction,
-                    StockOptionLevel = arg_StockOptionLevel,
-                    TotalWorkingYears = arg_TotalWorkingYears,
-                    TrainingTimesLastYear = arg_TrainingTimesLastYear,
-                    WorkLifeBalance = arg_WorkLifeBalance, YearsAtCompany = arg_YearsAtCompany,
-                    YearsInCurrentRole = arg_YearsInCurrentRole,
-                    YearsSinceLastPromotion = arg_YearsSinceLastPromotion,
-                    YearsWithCurrManager = arg_YearsWithCurrManager)
+    params <- list(
+      arg_Age = arg_Age,
+      arg_BusinessTravel = arg_BusinessTravel,
+      arg_DailyRate = arg_DailyRate,
+      arg_Department = arg_Department,
+      arg_DistanceFromHome = arg_DistanceFromHome,
+      arg_Education = arg_Education,
+      arg_EducationField = arg_EducationField,
+      arg_EnvironmentSatisfaction = arg_EnvironmentSatisfaction,
+      arg_Gender = arg_Gender,
+      arg_HourlyRate = arg_HourlyRate,
+      arg_JobInvolvement = arg_JobInvolvement,
+      arg_JobLevel = arg_JobLevel,
+      arg_JobRole = arg_JobRole,
+      arg_JobSatisfaction = arg_JobSatisfaction,
+      arg_MaritalStatus = arg_MaritalStatus,
+      arg_MonthlyIncome = arg_MonthlyIncome,
+      arg_MonthlyRate = arg_MonthlyRate,
+      arg_NumCompaniesWorked = arg_NumCompaniesWorked,
+      arg_OverTime = arg_OverTime,
+      arg_PercentSalaryHike = arg_PercentSalaryHike,
+      arg_PerformanceRating = arg_PerformanceRating,
+      arg_RelationshipSatisfaction = arg_RelationshipSatisfaction,
+      arg_StockOptionLevel = arg_StockOptionLevel,
+      arg_TotalWorkingYears = arg_TotalWorkingYears,
+      arg_TrainingTimesLastYear = arg_TrainingTimesLastYear,
+      arg_WorkLifeBalance = arg_WorkLifeBalance,
+      arg_YearsAtCompany = arg_YearsAtCompany,
+      arg_YearsInCurrentRole = arg_YearsInCurrentRole,
+      arg_YearsSinceLastPromotion = arg_YearsSinceLastPromotion,
+      arg_YearsWithCurrManager = arg_YearsWithCurrManager
+    )
+    
     
     query_url <- modify_url(url = base_url, query = params)
     
@@ -1213,4 +1464,15 @@ get_attrition_predictions(41,
                   4,
                   0,
                   5)
+
+
 ```
+
+```{r Your thirth second  Code Chunk, eval=FALSE, include=FALSE}
+# Stop the Plumber API after all the code chunks have been executed
+on.exit({
+  api <- plumber::plumb("PlumberAPI.R")
+  api$kill()  # Use the kill method to stop the API
+})
+```
+
