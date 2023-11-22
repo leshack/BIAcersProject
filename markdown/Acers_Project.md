@@ -4,7 +4,7 @@
 
 # Business Intelligence Project
 
-Acers Team 19th November 2023
+Acers Team 20th November 2023
 
 -   [Student Details](#student-details)
 -   [Setup Chunk](#setup-chunk)
@@ -2178,27 +2178,27 @@ print(predictions_nb_e1071)
 ```
 
 ```         
-##   [1] No  Yes Yes No  Yes Yes No  No  Yes Yes Yes Yes No  No  No  No  No  Yes
-##  [19] No  No  Yes No  Yes No  No  No  No  Yes No  No  No  Yes No  Yes No  Yes
-##  [37] No  No  No  No  No  No  No  No  No  No  No  No  No  Yes No  No  No  No 
-##  [55] No  No  No  No  Yes No  No  No  No  No  No  No  No  No  Yes No  No  No 
-##  [73] Yes Yes No  Yes No  No  No  No  No  Yes No  No  No  No  No  No  No  No 
-##  [91] No  No  No  No  No  Yes No  No  No  Yes No  No  No  No  Yes No  Yes No 
-## [109] No  No  No  Yes No  No  No  No  No  No  No  No  No  Yes No  No  No  No 
-## [127] Yes No  No  No  Yes No  No  No  Yes Yes No  No  Yes No  No  No  No  No 
-## [145] No  No  Yes No  No  Yes No  Yes Yes No  No  No  No  No  No  No  Yes Yes
-## [163] No  No  No  Yes No  No  No  No  No  No  No  Yes No  Yes Yes No  No  No 
-## [181] No  No  Yes No  No  No  No  No  No  No  No  Yes No  No  No  No  No  No 
-## [199] Yes No  No  Yes No  No  No  No  No  Yes No  Yes No  No  Yes Yes No  No 
-## [217] Yes No  No  Yes Yes No  No  No  No  No  No  Yes Yes No  No  No  No  No 
-## [235] No  No  No  No  Yes No  Yes Yes No  Yes No  No  No  No  No  No  No  No 
-## [253] No  Yes No  Yes No  No  No  No  No  Yes No  No  No  No  No  No  No  No 
-## [271] Yes Yes Yes Yes No  No  No  No  No  No  No  Yes Yes No  No  No  No  No 
-## [289] Yes No  No  Yes Yes No  No  Yes No  No  Yes No  No  No  No  No  Yes No 
-## [307] Yes No  No  No  No  Yes No  No  No  No  No  No  No  No  No  No  Yes No 
-## [325] No  No  No  No  No  No  No  No  No  No  No  No  No  No  No  Yes No  No 
-## [343] No  Yes Yes No  No  No  No  No  Yes No  No  Yes Yes No  No  No  Yes No 
-## [361] No  No  No  No  No  Yes No 
+##   [1] No  No  No  Yes No  No  Yes No  No  No  No  No  No  Yes No  No  Yes No 
+##  [19] No  No  No  No  No  No  No  No  No  Yes No  No  No  No  No  Yes No  No 
+##  [37] Yes No  No  No  No  Yes No  Yes No  No  No  No  Yes No  No  No  No  No 
+##  [55] No  No  No  No  No  No  Yes No  Yes No  No  Yes No  Yes No  No  No  No 
+##  [73] No  No  Yes Yes Yes No  No  No  No  No  No  No  No  Yes Yes No  No  Yes
+##  [91] No  No  Yes No  No  No  No  No  No  Yes No  No  No  Yes No  No  No  No 
+## [109] Yes No  No  No  Yes No  No  No  No  Yes No  No  No  No  No  Yes Yes No 
+## [127] No  No  No  No  No  No  No  Yes No  No  No  Yes No  No  No  No  No  Yes
+## [145] No  Yes No  No  No  Yes Yes No  Yes No  No  No  Yes Yes No  No  No  No 
+## [163] Yes No  Yes No  Yes No  No  No  Yes No  No  No  No  No  Yes No  No  No 
+## [181] No  No  No  Yes No  No  No  No  No  Yes No  Yes No  No  Yes Yes Yes Yes
+## [199] Yes No  No  No  No  Yes No  No  No  No  No  No  No  No  No  No  No  No 
+## [217] No  Yes No  No  No  No  Yes No  No  No  No  No  No  No  No  No  Yes Yes
+## [235] No  No  No  No  No  Yes No  No  No  No  Yes No  No  No  Yes No  No  No 
+## [253] No  No  No  No  No  No  No  No  Yes Yes No  No  No  Yes No  No  No  Yes
+## [271] No  No  No  No  No  Yes No  No  Yes Yes No  No  No  Yes Yes No  No  No 
+## [289] No  No  No  No  No  No  No  No  No  No  No  No  Yes Yes No  No  Yes No 
+## [307] Yes No  No  Yes No  No  No  No  No  No  No  No  No  No  Yes No  Yes No 
+## [325] Yes No  No  No  No  Yes Yes Yes No  No  No  Yes No  Yes No  No  No  No 
+## [343] No  No  No  No  No  No  No  No  No  Yes No  Yes Yes No  No  Yes Yes No 
+## [361] No  No  No  No  No  No  Yes
 ## Levels: No Yes
 ```
 
@@ -2214,28 +2214,28 @@ print(conf_matrix)
 ## 
 ##           Reference
 ## Prediction  No Yes
-##        No  257  24
-##        Yes  51  35
-##                                           
-##                Accuracy : 0.7956          
-##                  95% CI : (0.7507, 0.8357)
-##     No Information Rate : 0.8392          
-##     P-Value [Acc > NIR] : 0.98874         
-##                                           
-##                   Kappa : 0.3609          
-##                                           
-##  Mcnemar's Test P-Value : 0.00268         
-##                                           
-##             Sensitivity : 0.8344          
-##             Specificity : 0.5932          
-##          Pos Pred Value : 0.9146          
-##          Neg Pred Value : 0.4070          
-##              Prevalence : 0.8392          
-##          Detection Rate : 0.7003          
-##    Detection Prevalence : 0.7657          
-##       Balanced Accuracy : 0.7138          
-##                                           
-##        'Positive' Class : No              
+##        No  261  20
+##        Yes  47  39
+##                                          
+##                Accuracy : 0.8174         
+##                  95% CI : (0.774, 0.8556)
+##     No Information Rate : 0.8392         
+##     P-Value [Acc > NIR] : 0.885217       
+##                                          
+##                   Kappa : 0.4291         
+##                                          
+##  Mcnemar's Test P-Value : 0.001491       
+##                                          
+##             Sensitivity : 0.8474         
+##             Specificity : 0.6610         
+##          Pos Pred Value : 0.9288         
+##          Neg Pred Value : 0.4535         
+##              Prevalence : 0.8392         
+##          Detection Rate : 0.7112         
+##    Detection Prevalence : 0.7657         
+##       Balanced Accuracy : 0.7542         
+##                                          
+##        'Positive' Class : No             
 ## 
 ```
 
@@ -2297,11 +2297,11 @@ print(streamling_dateset_model_lda)
 ## 
 ## No pre-processing
 ## Resampling: Cross-Validated (5 fold) 
-## Summary of sample sizes: 1176, 1176, 1176, 1176, 1176 
+## Summary of sample sizes: 1175, 1177, 1177, 1176, 1175 
 ## Resampling results:
 ## 
 ##   Accuracy   Kappa    
-##   0.8748299  0.4462904
+##   0.8727972  0.4453786
 ## 
 ## Tuning parameter 'dimen' was held constant at a value of 1
 ```
@@ -2315,28 +2315,28 @@ caret::confusionMatrix(predictions_lda, test_streamling_processes_test$Attrition
 ## 
 ##           Reference
 ## Prediction  No Yes
-##        No  298  33
-##        Yes  10  26
-##                                           
-##                Accuracy : 0.8828          
-##                  95% CI : (0.8454, 0.9139)
-##     No Information Rate : 0.8392          
-##     P-Value [Acc > NIR] : 0.0114729       
-##                                           
-##                   Kappa : 0.4846          
-##                                           
-##  Mcnemar's Test P-Value : 0.0007937       
-##                                           
-##             Sensitivity : 0.9675          
-##             Specificity : 0.4407          
-##          Pos Pred Value : 0.9003          
-##          Neg Pred Value : 0.7222          
-##              Prevalence : 0.8392          
-##          Detection Rate : 0.8120          
-##    Detection Prevalence : 0.9019          
-##       Balanced Accuracy : 0.7041          
-##                                           
-##        'Positive' Class : No              
+##        No  302  31
+##        Yes   6  28
+##                                          
+##                Accuracy : 0.8992         
+##                  95% CI : (0.8637, 0.928)
+##     No Information Rate : 0.8392         
+##     P-Value [Acc > NIR] : 0.0006432      
+##                                          
+##                   Kappa : 0.5492         
+##                                          
+##  Mcnemar's Test P-Value : 7.961e-05      
+##                                          
+##             Sensitivity : 0.9805         
+##             Specificity : 0.4746         
+##          Pos Pred Value : 0.9069         
+##          Neg Pred Value : 0.8235         
+##              Prevalence : 0.8392         
+##          Detection Rate : 0.8229         
+##    Detection Prevalence : 0.9074         
+##       Balanced Accuracy : 0.7275         
+##                                          
+##        'Positive' Class : No             
 ## 
 ```
 
@@ -2376,165 +2376,165 @@ print(streamling_dateset_model_nb)
 ## Conditional probabilities:
 ##      Age
 ## Y         [,1]     [,2]
-##   No  37.29622 8.804689
-##   Yes 33.76966 9.823170
+##   No  37.44757 8.802468
+##   Yes 33.35393 9.758873
 ## 
 ##      BusinessTravel
 ## Y     Non-Travel Travel_Frequently Travel_Rarely
-##   No   0.1200000         0.1621622     0.7178378
-##   Yes  0.0505618         0.2471910     0.7022472
+##   No  0.10486486        0.17189189    0.72324324
+##   Yes 0.03932584        0.28651685    0.67415730
 ## 
 ##      DailyRate
 ## Y         [,1]     [,2]
-##   No  813.6281 406.6893
-##   Yes 743.0955 390.4419
+##   No  812.5016 401.0186
+##   Yes 749.4775 409.0891
 ## 
 ##      Department
 ## Y     Human Resources Research & Development      Sales
-##   No       0.03675676             0.67243243 0.29081081
-##   Yes      0.05056180             0.55056180 0.39887640
+##   No       0.04540541             0.67567568 0.27891892
+##   Yes      0.06179775             0.57303371 0.36516854
 ## 
 ##      DistanceFromHome
-## Y          [,1]     [,2]
-##   No   8.993514 8.038460
-##   Yes 10.106742 8.251339
+## Y         [,1]     [,2]
+##   No   8.75027 7.803548
+##   Yes 10.69663 8.525673
 ## 
 ##      Education
-## Y         [,1]      [,2]
-##   No  2.914595 1.0320896
-##   Yes 2.865169 0.9822264
+## Y         [,1]     [,2]
+##   No  2.926486 1.027227
+##   Yes 2.803371 1.030928
 ## 
 ##      EducationField
 ## Y     Human Resources Life Sciences  Marketing    Medical      Other
-##   No       0.01297297    0.42594595 0.09297297 0.31567568 0.06378378
-##   Yes      0.02247191    0.38764045 0.16853933 0.25280899 0.02808989
+##   No       0.01837838    0.40432432 0.09729730 0.33297297 0.06378378
+##   Yes      0.03370787    0.38764045 0.14044944 0.25842697 0.03932584
 ##      EducationField
 ## Y     Technical Degree
-##   No        0.08864865
+##   No        0.08324324
 ##   Yes       0.14044944
 ## 
 ##      EnvironmentSatisfaction
 ## Y         [,1]     [,2]
-##   No  2.780541 1.048835
-##   Yes 2.494382 1.170481
+##   No  2.774054 1.089987
+##   Yes 2.477528 1.160582
 ## 
 ##      Gender
 ## Y        Female      Male
-##   No  0.4129730 0.5870270
+##   No  0.3945946 0.6054054
 ##   Yes 0.3651685 0.6348315
 ## 
 ##      HourlyRate
 ## Y         [,1]     [,2]
-##   No  65.82162 20.44652
-##   Yes 66.19101 20.07409
+##   No  65.52973 20.12995
+##   Yes 64.17416 20.70421
 ## 
 ##      JobInvolvement
-## Y        [,1]      [,2]
-##   No  2.76973 0.6993754
-##   Yes 2.50000 0.7756900
+## Y         [,1]      [,2]
+##   No  2.778378 0.6850029
+##   Yes 2.511236 0.7382891
 ## 
 ##      JobLevel
-## Y         [,1]      [,2]
-##   No  2.118919 1.1063174
-##   Yes 1.646067 0.9528496
+## Y         [,1]     [,2]
+##   No  2.141622 1.109018
+##   Yes 1.606742 0.975612
 ## 
 ##      JobRole
 ## Y     Healthcare Representative Human Resources Laboratory Technician
-##   No                0.099459459     0.028108108           0.164324324
-##   Yes               0.033707865     0.050561798           0.269662921
+##   No                 0.09189189      0.03783784            0.16324324
+##   Yes                0.03370787      0.06179775            0.28089888
 ##      JobRole
-## Y         Manager Manufacturing Director Research Director Research Scientist
-##   No  0.076756757            0.107027027       0.059459459        0.203243243
-##   Yes 0.028089888            0.033707865       0.005617978        0.191011236
+## Y        Manager Manufacturing Director Research Director Research Scientist
+##   No  0.07567568             0.11567568        0.06594595         0.19459459
+##   Yes 0.02247191             0.03370787        0.01123596         0.20224719
 ##      JobRole
 ## Y     Sales Executive Sales Representative
-##   No      0.223783784          0.037837838
-##   Yes     0.252808989          0.134831461
+##   No       0.21405405           0.04108108
+##   Yes      0.23033708           0.12359551
 ## 
 ##      JobSatisfaction
 ## Y         [,1]     [,2]
-##   No  2.764324 1.106173
-##   Yes 2.398876 1.136651
+##   No  2.755676 1.090486
+##   Yes 2.455056 1.115227
 ## 
 ##      MaritalStatus
 ## Y      Divorced   Married    Single
-##   No  0.2443243 0.4637838 0.2918919
-##   Yes 0.1179775 0.3820225 0.5000000
+##   No  0.2400000 0.4648649 0.2951351
+##   Yes 0.1404494 0.3595506 0.5000000
 ## 
 ##      MonthlyIncome
 ## Y         [,1]     [,2]
-##   No  6690.291 4753.441
-##   Yes 4848.124 3708.031
+##   No  6831.877 4767.884
+##   Yes 4761.337 3781.179
 ## 
 ##      MonthlyRate
 ## Y         [,1]     [,2]
-##   No  14267.41 7078.218
-##   Yes 14491.59 7441.793
+##   No  14393.63 7203.947
+##   Yes 14090.62 7214.952
 ## 
 ##      NumCompaniesWorked
 ## Y         [,1]     [,2]
-##   No  2.621622 2.500123
-##   Yes 2.921348 2.677484
+##   No  2.677838 2.486325
+##   Yes 2.820225 2.621346
 ## 
 ##      OverTime
 ## Y            No       Yes
-##   No  0.7654054 0.2345946
-##   Yes 0.4550562 0.5449438
+##   No  0.7600000 0.2400000
+##   Yes 0.4494382 0.5505618
 ## 
 ##      PercentSalaryHike
 ## Y         [,1]     [,2]
-##   No  15.16865 3.681252
-##   Yes 15.18539 3.758893
+##   No  15.32541 3.711608
+##   Yes 15.10674 3.886070
 ## 
 ##      PerformanceRating
 ## Y         [,1]      [,2]
-##   No  3.155676 0.3627437
-##   Yes 3.168539 0.3754005
+##   No  3.164324 0.3707701
+##   Yes 3.162921 0.3703356
 ## 
 ##      RelationshipSatisfaction
 ## Y         [,1]     [,2]
-##   No  2.726486 1.067931
-##   Yes 2.679775 1.091175
+##   No  2.754595 1.083771
+##   Yes 2.567416 1.149038
 ## 
 ##      StockOptionLevel
 ## Y          [,1]      [,2]
-##   No  0.8551351 0.8569730
-##   Yes 0.5224719 0.8316144
+##   No  0.8443243 0.8512676
+##   Yes 0.5224719 0.8649160
 ## 
 ##      TotalWorkingYears
 ## Y          [,1]     [,2]
-##   No  11.789189 7.814260
-##   Yes  8.365169 7.431519
+##   No  11.928649 7.700515
+##   Yes  8.224719 7.077860
 ## 
 ##      TrainingTimesLastYear
 ## Y         [,1]     [,2]
-##   No  2.832432 1.298945
-##   Yes 2.634831 1.205599
+##   No  2.864865 1.293552
+##   Yes 2.646067 1.250316
 ## 
 ##      WorkLifeBalance
 ## Y         [,1]      [,2]
-##   No  2.765405 0.6758776
-##   Yes 2.646067 0.8189226
+##   No  2.797838 0.6654716
+##   Yes 2.651685 0.8178948
 ## 
 ##      YearsAtCompany
 ## Y         [,1]     [,2]
-##   No  7.372973 6.159173
-##   Yes 5.488764 6.423156
+##   No  7.521081 6.141622
+##   Yes 5.370787 5.945861
 ## 
 ##      YearsInCurrentRole
 ## Y         [,1]     [,2]
-##   No  4.543784 3.672979
-##   Yes 3.073034 3.181914
+##   No  4.579459 3.674148
+##   Yes 3.067416 3.296284
 ## 
 ##      YearsSinceLastPromotion
 ## Y         [,1]     [,2]
-##   No  2.280000 3.284899
-##   Yes 2.039326 3.178960
+##   No  2.231351 3.221359
+##   Yes 2.129213 3.322605
 ## 
 ##      YearsWithCurrManager
 ## Y         [,1]     [,2]
-##   No  4.410811 3.597722
-##   Yes 2.960674 3.226589
+##   No  4.423784 3.566298
+##   Yes 3.056180 3.267230
 ```
 
 ``` r
@@ -2546,28 +2546,28 @@ caret::confusionMatrix(predictions_nb_e1071, test_streamling_processes_test$Attr
 ## 
 ##           Reference
 ## Prediction  No Yes
-##        No  257  24
-##        Yes  51  35
-##                                           
-##                Accuracy : 0.7956          
-##                  95% CI : (0.7507, 0.8357)
-##     No Information Rate : 0.8392          
-##     P-Value [Acc > NIR] : 0.98874         
-##                                           
-##                   Kappa : 0.3609          
-##                                           
-##  Mcnemar's Test P-Value : 0.00268         
-##                                           
-##             Sensitivity : 0.8344          
-##             Specificity : 0.5932          
-##          Pos Pred Value : 0.9146          
-##          Neg Pred Value : 0.4070          
-##              Prevalence : 0.8392          
-##          Detection Rate : 0.7003          
-##    Detection Prevalence : 0.7657          
-##       Balanced Accuracy : 0.7138          
-##                                           
-##        'Positive' Class : No              
+##        No  261  20
+##        Yes  47  39
+##                                          
+##                Accuracy : 0.8174         
+##                  95% CI : (0.774, 0.8556)
+##     No Information Rate : 0.8392         
+##     P-Value [Acc > NIR] : 0.885217       
+##                                          
+##                   Kappa : 0.4291         
+##                                          
+##  Mcnemar's Test P-Value : 0.001491       
+##                                          
+##             Sensitivity : 0.8474         
+##             Specificity : 0.6610         
+##          Pos Pred Value : 0.9288         
+##          Neg Pred Value : 0.4535         
+##              Prevalence : 0.8392         
+##          Detection Rate : 0.7112         
+##    Detection Prevalence : 0.7657         
+##       Balanced Accuracy : 0.7542         
+##                                          
+##        'Positive' Class : No             
 ## 
 ```
 
@@ -2579,7 +2579,193 @@ plot(table(predictions_nb_e1071, test_streamling_processes_test$Attrition))
 
 #### Classification: SVM with Repeated k-fold Cross Validation {#classification-svm-with-repeated-k-fold-cross-validation}
 
+``` r
+### 5.a. SVM Attritionifier using 5-fold cross validation with 3 reps 
+# We train a Support Vector Machine (for Classification) using "Churn" variable
+# in the training dataset based on a repeated 5-fold cross validation train
+# control with 10 reps.
+
+# The repeated k-fold cross-validation method involves repeating the number of
+# times the dataset is split into k-subsets. The final model accuracy/RMSE is
+# taken as the mean from the number of repeats.
+
+train_control_svm <- trainControl(method = "repeatedcv", number = 5, repeats = 10)
+
+streamling_dateset_model_svm <-
+  caret::train(`Attrition` ~ ., data = train_streamling_processes_train,
+               trControl = train_control_svm, na.action = na.omit,
+               method = "svmLinearWeights2", metric = "Accuracy")
+
+### 5.b. Test the trained SVM model using the testing dataset 
+predictions_svm <- predict(streamling_dateset_model_svm, test_streamling_processes_test[, 1:31])
+
+### 5.c. View a summary of the model and view the confusion matrix 
+print(streamling_dateset_model_svm)
+```
+
+```         
+## L2 Regularized Linear Support Vector Machines with Class Weights 
+## 
+## 1103 samples
+##   30 predictor
+##    2 classes: 'No', 'Yes' 
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold, repeated 10 times) 
+## Summary of sample sizes: 883, 882, 882, 883, 882, 882, ... 
+## Resampling results across tuning parameters:
+## 
+##   cost  Loss  weight  Accuracy   Kappa        
+##   0.25  L1    1       0.7274883   0.0001478904
+##   0.25  L1    2       0.7226261   0.0062624574
+##   0.25  L1    3       0.6966693   0.0093481468
+##   0.25  L2    1       0.8386261   0.0000000000
+##   0.25  L2    2       0.8386261   0.0000000000
+##   0.25  L2    3       0.8380806   0.0039681996
+##   0.50  L1    1       0.6915195   0.0021558449
+##   0.50  L1    2       0.7028585   0.0023277998
+##   0.50  L1    3       0.7271008  -0.0001190172
+##   0.50  L2    1       0.8386261   0.0000000000
+##   0.50  L2    2       0.8386261   0.0000000000
+##   0.50  L2    3       0.8380806   0.0039681996
+##   1.00  L1    1       0.7079708   0.0014758789
+##   1.00  L1    2       0.7800444   0.0091103066
+##   1.00  L1    3       0.7735582  -0.0050463088
+##   1.00  L2    1       0.8386261   0.0000000000
+##   1.00  L2    2       0.8386261   0.0000000000
+##   1.00  L2    3       0.8380806   0.0039681996
+## 
+## Accuracy was used to select the optimal model using the largest value.
+## The final values used for the model were cost = 0.25, Loss = L2 and weight = 1.
+```
+
+``` r
+caret::confusionMatrix(predictions_svm, test_streamling_processes_test$Attrition)
+```
+
+```         
+## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction  No Yes
+##        No  308  59
+##        Yes   0   0
+##                                           
+##                Accuracy : 0.8392          
+##                  95% CI : (0.7976, 0.8753)
+##     No Information Rate : 0.8392          
+##     P-Value [Acc > NIR] : 0.5347          
+##                                           
+##                   Kappa : 0               
+##                                           
+##  Mcnemar's Test P-Value : 4.321e-14       
+##                                           
+##             Sensitivity : 1.0000          
+##             Specificity : 0.0000          
+##          Pos Pred Value : 0.8392          
+##          Neg Pred Value :    NaN          
+##              Prevalence : 0.8392          
+##          Detection Rate : 0.8392          
+##    Detection Prevalence : 1.0000          
+##       Balanced Accuracy : 0.5000          
+##                                           
+##        'Positive' Class : No              
+## 
+```
+
+``` r
+plot(table(predictions_svm, test_streamling_processes_test$Attrition))
+```
+
+![](Acers_Project_files/figure-gfm/Your%20twenty%20fourth%20Code%20Chunk-1.png)<!-- -->
+
 #### Classification: Naive Bayes with Leave One Out Cross Validation {#classification-naive-bayes-with-leave-one-out-cross-validation}
+
+``` r
+# In Leave One Out Cross-Validation (LOOCV), a data instance is left out and a
+# model constructed on all other data instances in the training set. This is
+# repeated for all data instances.
+
+
+### 6.a. Train a Naive Bayes Attritionifier based on an LOOCV 
+train_control_loocv <- trainControl(method = "LOOCV")
+
+streamling_dateset_model_nb_loocv <-
+  caret::train(`Attrition` ~ ., data = train_streamling_processes_train,
+               trControl = train_control_loocv, na.action = na.omit,
+               method = "naive_bayes", metric = "Accuracy")
+
+### 6.b. Test the trained model using the testing dataset
+predictions_nb_loocv <-
+  predict(streamling_dateset_model_nb_loocv, test_streamling_processes_test[, 1:31])
+
+### 6.c. View the confusion matrix 
+print(streamling_dateset_model_nb_loocv)
+```
+
+```         
+## Naive Bayes 
+## 
+## 1103 samples
+##   30 predictor
+##    2 classes: 'No', 'Yes' 
+## 
+## No pre-processing
+## Resampling: Leave-One-Out Cross-Validation 
+## Summary of sample sizes: 1102, 1102, 1102, 1102, 1102, 1102, ... 
+## Resampling results across tuning parameters:
+## 
+##   usekernel  Accuracy   Kappa    
+##   FALSE      0.6654578  0.2451749
+##    TRUE      0.8386219  0.0000000
+## 
+## Tuning parameter 'laplace' was held constant at a value of 0
+## Tuning
+##  parameter 'adjust' was held constant at a value of 1
+## Accuracy was used to select the optimal model using the largest value.
+## The final values used for the model were laplace = 0, usekernel = TRUE
+##  and adjust = 1.
+```
+
+``` r
+caret::confusionMatrix(predictions_nb_loocv, test_streamling_processes_test$Attrition)
+```
+
+```         
+## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction  No Yes
+##        No  308  59
+##        Yes   0   0
+##                                           
+##                Accuracy : 0.8392          
+##                  95% CI : (0.7976, 0.8753)
+##     No Information Rate : 0.8392          
+##     P-Value [Acc > NIR] : 0.5347          
+##                                           
+##                   Kappa : 0               
+##                                           
+##  Mcnemar's Test P-Value : 4.321e-14       
+##                                           
+##             Sensitivity : 1.0000          
+##             Specificity : 0.0000          
+##          Pos Pred Value : 0.8392          
+##          Neg Pred Value :    NaN          
+##              Prevalence : 0.8392          
+##          Detection Rate : 0.8392          
+##    Detection Prevalence : 1.0000          
+##       Balanced Accuracy : 0.5000          
+##                                           
+##        'Positive' Class : No              
+## 
+```
+
+``` r
+plot(table(predictions_nb_loocv, test_streamling_processes_test$Attrition))
+```
+
+![](Acers_Project_files/figure-gfm/Your%20twenty%20fifth%20Code%20Chunk-1.png)<!-- -->
 
 ### Actual Our Model Algorithm {#actual-our-model-algorithm}
 
@@ -2609,14 +2795,14 @@ print(streamling_caret_model_svm_radial)
 ## Summary of sample sizes: 882, 882, 883, 882, 883 
 ## Resampling results across tuning parameters:
 ## 
-##   C     Accuracy   Kappa     
-##   0.25  0.8386261  0.00000000
-##   0.50  0.8404401  0.01855692
-##   1.00  0.8630934  0.23007970
+##   C     Accuracy   Kappa    
+##   0.25  0.8386261  0.0000000
+##   0.50  0.8404443  0.0188535
+##   1.00  0.8631181  0.2392669
 ## 
-## Tuning parameter 'sigma' was held constant at a value of 0.01318753
+## Tuning parameter 'sigma' was held constant at a value of 0.01320004
 ## Accuracy was used to select the optimal model using the largest value.
-## The final values used for the model were sigma = 0.01318753 and C = 1.
+## The final values used for the model were sigma = 0.01320004 and C = 1.
 ```
 
 ``` r
@@ -2631,8 +2817,8 @@ table(predictions, test_streamling_processes_test$Attrition)
 ```         
 ##            
 ## predictions  No Yes
-##         No  306  50
-##         Yes   2   9
+##         No  307  44
+##         Yes   1  15
 ```
 
 ``` r
@@ -2647,26 +2833,26 @@ print(confusion_matrix)
 ## 
 ##           Reference
 ## Prediction  No Yes
-##        No  306  50
-##        Yes   2   9
+##        No  307  44
+##        Yes   1  15
 ##                                           
-##                Accuracy : 0.8583          
-##                  95% CI : (0.8184, 0.8923)
+##                Accuracy : 0.8774          
+##                  95% CI : (0.8394, 0.9091)
 ##     No Information Rate : 0.8392          
-##     P-Value [Acc > NIR] : 0.1784          
+##     P-Value [Acc > NIR] : 0.02456         
 ##                                           
-##                   Kappa : 0.2176          
+##                   Kappa : 0.3558          
 ##                                           
-##  Mcnemar's Test P-Value : 7.138e-11       
+##  Mcnemar's Test P-Value : 3.825e-10       
 ##                                           
-##             Sensitivity : 0.9935          
-##             Specificity : 0.1525          
-##          Pos Pred Value : 0.8596          
-##          Neg Pred Value : 0.8182          
+##             Sensitivity : 0.9968          
+##             Specificity : 0.2542          
+##          Pos Pred Value : 0.8746          
+##          Neg Pred Value : 0.9375          
 ##              Prevalence : 0.8392          
-##          Detection Rate : 0.8338          
-##    Detection Prevalence : 0.9700          
-##       Balanced Accuracy : 0.5730          
+##          Detection Rate : 0.8365          
+##    Detection Prevalence : 0.9564          
+##       Balanced Accuracy : 0.6255          
 ##                                           
 ##        'Positive' Class : No              
 ## 
@@ -2697,6 +2883,108 @@ ggplot(data = conf_matrix_df, aes(x = Reference, y = Prediction, fill = Frequenc
 
 The code performs model training and comparison for predicting 'Attrition' using different algorithms. It sets up a repeated cross-validation control (train_control), then trains models using Linear Discriminant Analysis (LDA), Classification and Regression Trees (CART), k-Nearest Neighbors (KNN), Support Vector Machine with radial kernel (SVM), and Random Forest. The goal is to evaluate and compare the performance of these models using the specified training control settings.
 
+``` r
+train_control <- trainControl(method = "repeatedcv", number = 10, repeats = 3)
+
+### LDA
+set.seed(7)
+streamling_model_lda <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM,
+                            method = "lda", trControl = train_control)
+
+### CART
+set.seed(7)
+streamling_model_cart <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM,
+                             method = "rpart", trControl = train_control)
+
+### KNN 
+set.seed(7)
+streamling_model_knn <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM,
+                            method = "knn", trControl = train_control)
+
+### SVM 
+set.seed(7)
+streamling_model_svm <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM,
+                            method = "svmRadial", trControl = train_control)
+
+### Random Forest 
+set.seed(7)
+streamling_model_rf <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM,
+                           method = "rf", trControl = train_control)
+
+## 3.b. Call the `resamples` Function
+# We then create a list of the model results and pass the list as an argument
+# to the `resamples` function.
+
+results <- resamples(list(LDA = streamling_model_lda, CART = streamling_model_cart,
+                          KNN = streamling_model_knn, SVM = streamling_model_svm,
+                          RF = streamling_model_rf))
+
+scales <- list(x = list(relation = "free"), y = list(relation = "free"))
+bwplot(results, scales = scales)
+```
+
+![](Acers_Project_files/figure-gfm/Your%20twenty%20seventh%20Code%20Chunk-1.png)<!-- -->
+
+``` r
+scales <- list(x = list(relation = "free"), y = list(relation = "free"))
+dotplot(results, scales = scales)
+```
+
+![](Acers_Project_files/figure-gfm/Your%20twenty%20seventh%20Code%20Chunk-2.png)<!-- -->
+
+``` r
+splom(results)
+```
+
+![](Acers_Project_files/figure-gfm/Your%20twenty%20seventh%20Code%20Chunk-3.png)<!-- -->
+
+``` r
+# xyplot plots to compare models
+xyplot(results, models = c("LDA", "SVM"))
+```
+
+![](Acers_Project_files/figure-gfm/Your%20twenty%20seventh%20Code%20Chunk-4.png)<!-- -->
+
+``` r
+# or
+# xyplot plots to compare models
+xyplot(results, models = c("SVM", "CART"))
+```
+
+![](Acers_Project_files/figure-gfm/Your%20twenty%20seventh%20Code%20Chunk-5.png)<!-- -->
+
+``` r
+diffs <- diff(results)
+
+summary(diffs)
+```
+
+```         
+## 
+## Call:
+## summary.diff.resamples(object = diffs)
+## 
+## p-value adjustment: bonferroni 
+## Upper diagonal: estimates of the difference
+## Lower diagonal: p-value for H0: difference = 0
+## 
+## Accuracy 
+##      LDA       CART      KNN       SVM       RF       
+## LDA             0.033098  0.041479  0.010201  0.017220
+## CART 2.309e-08            0.008381 -0.022897 -0.015878
+## KNN  2.859e-08 0.836319            -0.031278 -0.024259
+## SVM  0.011950  1.216e-05 7.210e-09            0.007019
+## RF   0.000505  0.002636  1.744e-05 0.178204           
+## 
+## Kappa 
+##      LDA       CART      KNN       SVM       RF       
+## LDA             0.247718  0.380570  0.169228  0.163456
+## CART 4.288e-13            0.132852 -0.078490 -0.084262
+## KNN  2.745e-15 3.032e-05           -0.211342 -0.217114
+## SVM  4.027e-11 0.010489  6.963e-10           -0.005772
+## RF   4.040e-09 0.004762  2.889e-10 1.000000
+```
+
 # Hyper Parameter Tunning {#hyper-parameter-tunning}
 
 `Hyperparameter Tuning` involves optimizing the hyperparameters of a machine learning algorithm to enhance model performance. Hyperparameters are configuration settings external to the model that influence its learning process. The code likely employs techniques like grid search or random search to systematically explore different hyperparameter combinations for algorithms such as LDA, CART, KNN, SVM, and Random Forest. This process aims to find the optimal set of hyperparameters that yields the best model performance.
@@ -2710,6 +2998,67 @@ The code performs model training and comparison for predicting 'Attrition' using
 ### Boosting {#boosting}
 
 #### GBM {#gbm}
+
+``` r
+seed <- 7
+metric <- "Accuracy"
+train_control <- trainControl(method = "cv", number = 5)
+
+
+#### Boosting with C5.0 ----
+# C5.0
+set.seed(seed)
+ion_model_c50 <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, method = "C5.0",
+                       metric = metric,
+                       trControl = train_control)
+
+####  Boosting with Stochastic Gradient Boosting ----
+set.seed(seed)
+ion_model_gbm <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, method = "gbm",
+                       metric = metric, trControl = train_control,
+                       verbose = FALSE)
+
+# Summarize results 
+boosting_results <-
+  resamples(list("C5.0 boosting ensemble" =ion_model_c50,
+                 "Generalized Boosted Regression Modeling (GBM)" = ion_model_gbm))
+
+summary(boosting_results)
+```
+
+```         
+## 
+## Call:
+## summary.resamples(object = boosting_results)
+## 
+## Models: C5.0 boosting ensemble, Generalized Boosted Regression Modeling (GBM) 
+## Number of resamples: 5 
+## 
+## Accuracy 
+##                                                    Min.   1st Qu.    Median
+## C5.0 boosting ensemble                        0.8474576 0.8508475 0.8639456
+## Generalized Boosted Regression Modeling (GBM) 0.8474576 0.8600683 0.8779661
+##                                                    Mean   3rd Qu.     Max. NA's
+## C5.0 boosting ensemble                        0.8639860 0.8737201 0.883959    0
+## Generalized Boosted Regression Modeling (GBM) 0.8721261 0.8843537 0.890785    0
+## 
+## Kappa 
+##                                                    Min.   1st Qu.   Median
+## C5.0 boosting ensemble                        0.2432879 0.3606016 0.379719
+## Generalized Boosted Regression Modeling (GBM) 0.2600747 0.3077278 0.461788
+##                                                    Mean   3rd Qu.      Max.
+## C5.0 boosting ensemble                        0.3633392 0.3880737 0.4450139
+## Generalized Boosted Regression Modeling (GBM) 0.3950538 0.4658159 0.4798626
+##                                               NA's
+## C5.0 boosting ensemble                           0
+## Generalized Boosted Regression Modeling (GBM)    0
+```
+
+``` r
+dotplot(boosting_results)
+```
+
+![](Acers_Project_files/figure-gfm/Your%20twenty%20nineth%20Code%20Chunk-1.png)<!-- -->
 
 # Save and Load your Model {#save-and-load-your-model}
 
@@ -2735,14 +3084,14 @@ print(loaded_streamling_model_svm)
 ## Summary of sample sizes: 882, 882, 883, 882, 883 
 ## Resampling results across tuning parameters:
 ## 
-##   C     Accuracy   Kappa     
-##   0.25  0.8386261  0.00000000
-##   0.50  0.8404401  0.01855692
-##   1.00  0.8630934  0.23007970
+##   C     Accuracy   Kappa    
+##   0.25  0.8386261  0.0000000
+##   0.50  0.8404443  0.0188535
+##   1.00  0.8631181  0.2392669
 ## 
-## Tuning parameter 'sigma' was held constant at a value of 0.01318753
+## Tuning parameter 'sigma' was held constant at a value of 0.01320004
 ## Accuracy was used to select the optimal model using the largest value.
-## The final values used for the model were sigma = 0.01318753 and C = 1.
+## The final values used for the model were sigma = 0.01320004 and C = 1.
 ```
 
 ``` r
@@ -2756,26 +3105,26 @@ confusionMatrix(predictions_with_loaded_model, test_streamling_processes_test$At
 ## 
 ##           Reference
 ## Prediction  No Yes
-##        No  306  50
-##        Yes   2   9
+##        No  307  44
+##        Yes   1  15
 ##                                           
-##                Accuracy : 0.8583          
-##                  95% CI : (0.8184, 0.8923)
+##                Accuracy : 0.8774          
+##                  95% CI : (0.8394, 0.9091)
 ##     No Information Rate : 0.8392          
-##     P-Value [Acc > NIR] : 0.1784          
+##     P-Value [Acc > NIR] : 0.02456         
 ##                                           
-##                   Kappa : 0.2176          
+##                   Kappa : 0.3558          
 ##                                           
-##  Mcnemar's Test P-Value : 7.138e-11       
+##  Mcnemar's Test P-Value : 3.825e-10       
 ##                                           
-##             Sensitivity : 0.9935          
-##             Specificity : 0.1525          
-##          Pos Pred Value : 0.8596          
-##          Neg Pred Value : 0.8182          
+##             Sensitivity : 0.9968          
+##             Specificity : 0.2542          
+##          Pos Pred Value : 0.8746          
+##          Neg Pred Value : 0.9375          
 ##              Prevalence : 0.8392          
-##          Detection Rate : 0.8338          
-##    Detection Prevalence : 0.9700          
-##       Balanced Accuracy : 0.5730          
+##          Detection Rate : 0.8365          
+##    Detection Prevalence : 0.9564          
+##       Balanced Accuracy : 0.6255          
 ##                                           
 ##        'Positive' Class : No              
 ## 
@@ -2822,7 +3171,7 @@ predict(loaded_streamling_model_svm, to_be_predicted)
 ```
 
 ```         
-## [1] No
+## [1] Yes
 ## Levels: No Yes
 ```
 
@@ -2898,7 +3247,7 @@ predict_attrition(41,
 ```
 
 ```         
-## [1] No
+## [1] Yes
 ## Levels: No Yes
 ```
 
@@ -2961,7 +3310,7 @@ future({
 ## Value: <not collected>
 ## Conditions captured: <none>
 ## Early signaling: FALSE
-## Owner process: 0e023c8f-23f9-88a4-7174-a8fb34d10abc
+## Owner process: dd25dfaf-9ac8-dc13-753c-5c995c3c6446
 ## Class: 'MultisessionFuture', 'ClusterFuture', 'MultiprocessFuture', 'Future', 'environment'
 ```
 
