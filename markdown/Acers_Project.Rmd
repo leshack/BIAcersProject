@@ -1091,7 +1091,7 @@ that yields the best model performance.
 
 #### Grid Search
 
-```{r Your twenty eighth Code Chunk }
+```{r Your twenty eighth Code Chunk, eval=FALSE, include=FALSE}
 # Apply a "Grid Search" to identify the best parameter value
 # Each axis of the grid is an algorithm parameter, and points on the grid are
 # specific combinations of parameters.
@@ -1476,3 +1476,11 @@ on.exit({
 })
 ```
 
+# Prediction Web Form And Customer-facing Dashboard
+
+The customer facing dashboard is on real-time bases where it visualizes the customer data verses other customer data to show the goal to be attained or to guide for future decisions making.
+
+```{r, results='asis'}
+
+cat('<iframe src="http://localhost/Good%20Architecture/Attrition%20Prediction.php" width="1000" height="800"></iframe>')
+```
