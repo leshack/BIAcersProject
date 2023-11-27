@@ -1091,7 +1091,7 @@ that yields the best model performance.
 
 #### Grid Search
 
-```{r Your twenty eighth Code Chunk, eval=FALSE, include=FALSE}
+```{r Your twenty eighth Code Chunk }
 # Apply a "Grid Search" to identify the best parameter value
 # Each axis of the grid is an algorithm parameter, and points on the grid are
 # specific combinations of parameters.
@@ -1478,7 +1478,7 @@ on.exit({
 
 # Prediction Web Form And Customer-facing Dashboard
 
-The customer facing dashboard is on real-time bases where it visualizes the customer data verses other customer data to show the goal to be attained or to guide for future decisions making.
+The customer facing dashboard is on real-time bases where it visualizes the customer data verses other customer data to show the goal to be attained or to guide for future decisions making.`NB` since the file is to large can be opened when downloaded `.html` and viewed via the Browser
 
 ```{r, results='asis'}
 
