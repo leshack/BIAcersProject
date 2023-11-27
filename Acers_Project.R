@@ -1,4 +1,4 @@
-#Loading Packages 
+# Loading Packages----
 
 if (!is.element("languageserver", installed.packages()[, 1])) {
   install.packages("languageserver", dependencies = TRUE)
@@ -55,7 +55,7 @@ if (!is.element("mice", installed.packages()[, 1])) {
 }
 require("mice")
 
-## e1071 ----
+## e1071 
 if (require("e1071")) {
   require("e1071")
 } else {
@@ -63,7 +63,7 @@ if (require("e1071")) {
                    repos = "https://cloud.r-project.org")
 }
 
-## factoextra ----
+## factoextra 
 if (require("factoextra")) {
   require("factoextra")
 } else {
@@ -71,7 +71,7 @@ if (require("factoextra")) {
                    repos = "https://cloud.r-project.org")
 }
 
-## FactoMineR ----
+## FactoMineR 
 if (require("FactoMineR")) {
   require("FactoMineR")
 } else {
@@ -79,8 +79,8 @@ if (require("FactoMineR")) {
                    repos = "https://cloud.r-project.org")
 }
 
-# STEP 1. Install and Load the Required Packages ----
-## randomForest ----
+# STEP 1. Install and Load the Required Packages 
+## randomForest 
 if (require("randomForest")) {
   require("randomForest")
 } else {
@@ -88,14 +88,14 @@ if (require("randomForest")) {
                    repos = "https://cloud.r-project.org")
 }
 
-## RRF ----
+## RRF 
 if (require("RRF")) {
   require("RRF")
 } else {
   install.packages("RRF", dependencies = TRUE,
                    repos = "https://cloud.r-project.org")
 }
-## caretEnsemble ----
+## caretEnsemble 
 if (require("caretEnsemble")) {
   require("caretEnsemble")
 } else {
@@ -103,7 +103,7 @@ if (require("caretEnsemble")) {
                    repos = "https://cloud.r-project.org")
 }
 
-## C50 ----
+## C50 
 if (require("C50")) {
   require("C50")
 } else {
@@ -111,21 +111,21 @@ if (require("C50")) {
                    repos = "https://cloud.r-project.org")
 }
 
-## adabag ----
+## adabag 
 if (require("adabag")) {
   require("adabag")
 } else {
   install.packages("adabag", dependencies = TRUE,
                    repos = "https://cloud.r-project.org")
 }
-## plumber ----
+## plumber 
 if (require("plumber")) {
   require("plumber")
 } else {
   install.packages("plumber", dependencies = TRUE,
                    repos = "https://cloud.r-project.org")
 }
-## httr ----
+## httr 
 if (require("httr")) {
   require("httr")
 } else {
@@ -133,7 +133,7 @@ if (require("httr")) {
                    repos = "https://cloud.r-project.org")
 }
 
-## jsonlite ----
+## jsonlite 
 if (require("jsonlite")) {
   require("jsonlite")
 } else {
@@ -144,22 +144,22 @@ if (require("jsonlite")) {
 
 
 
-# Lab 1: Loading Datasets ----
+# Loading Datasets ----
 
 
 library(readr)
 STREAMLINING_PROCESSES_AT_KINYANJUI_FARM <- read_csv("data/STREAMLINING PROCESSES AT KINYANJUI FARM.csv")
 View(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
 
-# Lab 2: Exploratory Data Analysis ----
-## Dimensions ----
+# STEP 1 : Exploratory Data Analysis ----
+## Dimensions 
 ###  Preview the Loaded Datasets ----
 # Dimensions refer to the number of observations (rows) and the number of
 # attributes/variables/features (columns). Execute the following commands to
 # display the dimensions of your datasets:
 dim(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
 
-## Data Types ----
+### Data Types ----
 ### Identify the Data Types ----
 # Knowing the data types will help you to identify the most appropriate
 # visualization types and algorithms that can be applied. It can also help you
@@ -175,9 +175,9 @@ View(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
 
 ## Descriptive Statistics ----
 
-### Measures of Frequency ----
+#### Measures of Frequency ----
 
-#### Identify the number of instances that belong to Gender ----
+#### Identify the number of instances that belong to Gender
 # It is more sensible to count categorical variables (factors or dimensions)
 # than numeric variables, e.g., counting the number of male and female
 
@@ -193,8 +193,8 @@ streamlining_processes_freq <- STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Business
 cbind(frequency = table(streamlining_processes_freq),
       percentage = prop.table(table(streamlining_processes_freq)) * 100)
 
-### Measures of Central Tendency ----
-#### Mode ----
+#### Measures of Central Tendency ----
+#### Mode 
 
 streamlining_processes_gender_mode <- names(table(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Gender))[
   which(table(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Gender) == max(table(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Gender)))
@@ -212,7 +212,7 @@ streamlining_processes_businessRole_mode <- names(table(STREAMLINING_PROCESSES_A
 ]
 print(streamlining_processes_businessRole_mode)
 
-### Measures of Distribution/Dispersion/Spread/Scatter/Variability ----
+#### Measures of Distribution/Dispersion/Spread/Scatter/Variability ----
 
 summary(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM)
 
@@ -842,7 +842,7 @@ plot(streamling_model_grid_search_rrf_global)
 #### AdaBoost.M1 ----
 seed <- 7
 metric <- "Accuracy"
-train_control_em <- trainControl(method = "cv", number = 5)
+train_control <- trainControl(method = "cv", number = 5)
 
 
 #### Boosting with C5.0 ----
@@ -850,31 +850,21 @@ train_control_em <- trainControl(method = "cv", number = 5)
 set.seed(seed)
 ion_model_c50 <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, method = "C5.0",
                        metric = metric,
-                       trControl = train_control_em)
+                       trControl = train_control)
 
 ####  Boosting with Stochastic Gradient Boosting ----
 set.seed(seed)
 ion_model_gbm <- train(Attrition ~ ., data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, method = "gbm",
-                       metric = metric, trControl = train_control_em,
+                       metric = metric, trControl = train_control,
                        verbose = FALSE)
-
-set.seed(seed)
-ion_model_adaboost <- train(
-  Attrition ~ ., 
-  data = STREAMLINING_PROCESSES_AT_KINYANJUI_FARM, 
-  method = "AdaBoost.M1",
-  metric = metric,
-  trControl = train_control_em,
-  weights = ifelse(STREAMLINING_PROCESSES_AT_KINYANJUI_FARM$Attrition == "Yes", 1, 2)
-)
 
 
 # Summarize results 
 boosting_results <-
   resamples(list("C5.0 boosting ensemble" = ion_model_c50,
                  "Generalized Boosted Regression Modeling (GBM)" =
-                   ion_model_gbm,
-                 "AdaBoost" = ion_model_adaboost))
+                   ion_model_gbm
+                ))
 
 summary(boosting_results)
 dotplot(boosting_results)
